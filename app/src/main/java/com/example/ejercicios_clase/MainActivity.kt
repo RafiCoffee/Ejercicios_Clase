@@ -2,6 +2,7 @@ package com.example.ejercicios_clase
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,24 +15,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.ejercicios_clase.ui.theme.Ejercicios_ClaseTheme
 
+private var a: A = A("Ruben", "Rafi", 20, true)
 private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        onStart()
     }
 
     override fun onStart() {
         super.onStart()
         Log.d(TAG, "Se llama después de onCreate. Santi, muestro la pantalla. El usuario aún no puede interaccionar")
+        a = A("Ruben", "Rafi", 20, true)
+        onResume()
     }
 
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "El usuario ya puede interaccionar con la pantalla")
+        Toast.makeText(this, a.toString(), Toast.LENGTH_LONG).show()
     }
 
-    override fun onPause() {
+    /*override fun onPause() {
         super.onPause()
         Log.d(TAG, "Pierdo el foco de la pantalla. Boton home")
     }
@@ -49,5 +55,5 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "La actividad muere.")
-    }
+    }*/
 }

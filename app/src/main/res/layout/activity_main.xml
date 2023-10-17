@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/PruebaSaludo"
+        android:layout_width="700px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150px"
+        android:text="Pulsame"
+        android:textSize="60px"
+        android:onClick="Pulsame"
+        />
+
+    <TextView
+        android:id="@+id/Prueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hola, funcioné"
+        android:textSize="60px"
+        android:textColor="@color/purple_500"
+        />
+
 
 </LinearLayout>

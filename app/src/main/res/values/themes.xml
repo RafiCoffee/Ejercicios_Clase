@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.Ejercicios_Clase" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="GreenText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#00FF00</item>
+    </style>
 </resources>
