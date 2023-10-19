@@ -16,12 +16,12 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Ejercicios_Clase">
-            <intent-filter>
+            android:theme="@style/MainApp">
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
 
             <!--Quitamos la etiqueta de intent-filter para que esta activity no sea la que salte en un inicio-->
         </activity>
@@ -30,13 +30,13 @@
             android:name=".SecondActivity"
             android:exported="true"
             android:label="Nueva Pantalla De Inicio"
-            android:theme="@style/Theme.Ejercicios_Clase">
+            android:theme="@style/MainApp">
             <!--Colocamos el intent-filter en la activity que queremos que se muestre al iniciar-->
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
     </application>

@@ -3,26 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/purple_200">
 
     <Button
-        android:id="@+id/PruebaSaludo"
-        android:layout_width="700px"
+        android:id="@+id/Saludo"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150px"
-        android:text="Pulsame"
-        android:textSize="60px"
-        android:onClick="Pulsame"
-        />
+        android:layout_marginTop="50dp"
+        android:background="@color/Celeste"
+        android:text="@string/saludo"
+        android:textColor="@color/RojoOscuro"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:onClick="capturarEvento"/>
 
-    <TextView
-        android:id="@+id/Prueba"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/NoSaludo"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Hola, funcioné"
-        android:textSize="60px"
-        android:textColor="@color/purple_500"
-        />
+        android:layout_marginTop="50dp"
+        android:background="@color/Celeste"
+        android:text="@string/noSaludo"
+        android:textColor="@color/RojoOscuro"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:onClick="capturarEvento"/>
 
+    <Button
+        android:id="@+id/SaludoClase"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/Celeste"
+        android:text="@string/saludoClase"
+        android:textColor="@color/RojoOscuro"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:onClick="capturarEvento"/>
 
 </LinearLayout>
