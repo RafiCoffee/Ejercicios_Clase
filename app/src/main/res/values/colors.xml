@@ -6,9 +6,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="Negro">#FF000000</color>
+    <color name="NegroFondo">#E0000000</color>
     <color name="Blanco">#FFFFFFFF</color>
     <color name="Rojo">#FF0000</color>
     <color name="Azul">#005FFF</color>
     <color name="Celeste">#00DFFF</color>
     <color name="RojoOscuro">#80000F</color>
+    <color name="Verde">#FF00DF00</color>
+    <color name="VerdeOscuro">#FF004F00</color>
 </resources>

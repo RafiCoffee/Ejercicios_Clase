@@ -3,4 +3,9 @@
     <string name="saludo">Saludar</string>
     <string name="noSaludo">No Saludar</string>
     <string name="saludoClase">Saludar clase</string>
+    <string name="primerAc">Iniciar Activity 1</string>
+    <string name="segundoAc">Iniciar Activity 2</string>
+    <string name="acVolver">Volver a la Activity Principal</string>
+    <string name="initAc">Iniciando Activity Datos</string>
+    <string name="acIniciado">Estamos en el Activity Datos</string>
 </resources>

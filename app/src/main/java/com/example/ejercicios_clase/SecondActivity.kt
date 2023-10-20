@@ -13,7 +13,7 @@ private lateinit var saludoClaseBt: Button
 class SecondActivity : AppCompatActivity()/*, View.OnClickListener*/ {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_greet)
 
         saludoBt = findViewById(R.id.Saludo)
         noSaludoBt = findViewById(R.id.NoSaludo)

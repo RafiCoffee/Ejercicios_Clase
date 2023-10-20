@@ -7,7 +7,7 @@
     android:background="@color/NegroFondo">
 
     <TextView
-        android:id="@+id/texto_principal"
+        android:id="@+id/texto_first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -18,23 +18,12 @@
         android:textAlignment="center"/>
 
     <Button
-        android:id="@+id/primer_ac"
+        android:id="@+id/primer_ac_volver"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:background="@color/Celeste"
-        android:text="@string/primerAc"
-        android:textColor="@color/VerdeOscuro"
-        android:textSize="30sp"
-        android:layout_gravity="center" />
-
-    <Button
-        android:id="@+id/segundo_ac"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@color/Celeste"
-        android:text="@string/segundoAc"
+        android:text="@string/acVolver"
         android:textColor="@color/VerdeOscuro"
         android:textSize="30sp"
         android:layout_gravity="center" />
