@@ -8,4 +8,14 @@
     <string name="acVolver">Volver a la Activity Principal</string>
     <string name="initAc">Iniciando Activity Datos</string>
     <string name="acIniciado">Estamos en el Activity Datos</string>
+    <string name="boton_llamada">Boton De LLamada</string>
+    <string name="boton_internet">Boton De Internet</string>
+    <string name="boton_alarma">Boton De Alarma</string>
+    <string name="boton_ajustes">Boton De Ajustes</string>
+    <string name="imagen_personaje">Imagen De Personaje</string>
+    <string name="Marca_Ruben">Rubén De Haro Sánchez</string>
+    <string name="marcar_llamada">Marcar tu el número</string>
+    <string name="llamar_directo">Llamar directamente</string>
+    <string name="texto_llamada_default">Escribe un número para llamar</string>
+    <string name="descripcion_boton_llamada_2">Pulsa para llamar al número indicado</string>
 </resources>

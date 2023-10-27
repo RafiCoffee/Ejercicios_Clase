@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/NegroFondo">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/Marca_Ruben"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/Blanco"/>
+    
+    <ImageView
+        android:layout_width="325dp"
+        android:layout_height="325dp"
+        android:layout_gravity="center"
+        android:src="@drawable/concept_owl"
+        android:contentDescription="@string/imagen_personaje"/>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/LlamadaBt"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/borde_redondo"
+                android:layout_marginHorizontal="30dp"
+                android:src="@drawable/llamada_logo"
+                android:scaleType="fitXY"
+                android:padding="10dp"
+                android:contentDescription="@string/boton_llamada"/>
+
+            <ImageButton
+                android:id="@+id/InternetBt"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/borde_redondo"
+                android:layout_marginHorizontal="30dp"
+                android:src="@drawable/internet_logo"
+                android:scaleType="fitXY"
+                android:padding="10dp"
+                android:contentDescription="@string/boton_internet"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/AlarmaBt"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/borde_redondo"
+                android:layout_marginHorizontal="30dp"
+                android:src="@drawable/alarma_logo"
+                android:scaleType="fitXY"
+                android:padding="10dp"
+                android:contentDescription="@string/boton_alarma"/>
+
+            <ImageButton
+                android:id="@+id/AjustesBt"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/borde_redondo"
+                android:layout_marginHorizontal="30dp"
+                android:src="@drawable/ajustes_logo"
+                android:scaleType="fitXY"
+                android:padding="10dp"
+                android:contentDescription="@string/boton_ajustes"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
