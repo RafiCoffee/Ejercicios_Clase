@@ -12,6 +12,10 @@
     <color name="Azul">#005FFF</color>
     <color name="Celeste">#00DFFF</color>
     <color name="RojoOscuro">#80000F</color>
-    <color name="Verde">#FF00DF00</color>
-    <color name="VerdeOscuro">#FF004F00</color>
+    <color name="VerdeClaro">#8AFF75</color>
+    <color name="Verde">#11D800</color>
+    <color name="VerdeOscuro">#086600</color>
+    <color name="Rosa">#FF00E0</color>
+    <color name="Naranja">#FF6400</color>
+    <color name="Carne">#DEB285</color>
 </resources>
