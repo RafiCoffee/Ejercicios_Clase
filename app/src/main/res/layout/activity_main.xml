@@ -1,63 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/NegroFondo">
+    android:background="@color/NegroFondo"
+    tools:context=".MainActivity">
+    
+    <Button
+        android:id="@+id/boton_Saltar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/saltar"
+        android:layout_gravity="center_horizontal|bottom"/>
 
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/VerdeOscuro"
-        android:layout_gravity="start|top"/>
-
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/Verde"
+    <ImageView
+        android:id="@+id/Imagen1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/VerdeClaro"
         android:layout_gravity="top|center"/>
 
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/VerdeClaro"
-        android:layout_gravity="end|top"/>
-
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/purple_700"
-        android:layout_gravity="start|center"/>
-
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/purple_500"
-        android:layout_gravity="center"/>
-
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+    <ImageView
+        android:id="@+id/Imagen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@color/Azul"
-        android:layout_gravity="end|center"/>
+        android:layout_gravity="center"
+        android:padding="16dp"/>
 
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/Rosa"
-        android:layout_gravity="start|bottom"/>
-
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/Naranja"
-        android:layout_gravity="bottom|center"/>
-
-    <View
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:background="@color/Carne"
-        android:layout_gravity="end|bottom"/>
 
 </FrameLayout>

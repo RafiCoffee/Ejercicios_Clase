@@ -18,4 +18,5 @@
     <string name="llamar_directo">Llamar directamente</string>
     <string name="texto_llamada_default">Escribe un número para llamar</string>
     <string name="descripcion_boton_llamada_2">Pulsa para llamar al número indicado</string>
+    <string name="saltar">Saltar</string>
 </resources>
