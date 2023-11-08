@@ -1,33 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/NegroFondo"
+    android:orientation="vertical"
+    android:background="@color/Negro"
+    android:padding="10dp"
     tools:context=".MainActivity">
-    
-    <Button
-        android:id="@+id/boton_Saltar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="@string/saltar"
-        android:layout_gravity="center_horizontal|bottom"/>
 
-    <ImageView
-        android:id="@+id/Imagen1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/VerdeClaro"
-        android:layout_gravity="top|center"/>
+        android:orientation="vertical"
+        android:background="@drawable/borde_redondo">
 
-    <ImageView
-        android:id="@+id/Imagen2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/Azul"
-        android:layout_gravity="center"
-        android:padding="16dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:background="@drawable/borde_redondo_text"
+                android:layout_marginRight="12dp"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:background="@drawable/boton_terciario_redondo"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/borde_redondo_int">
 
 
-</FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
