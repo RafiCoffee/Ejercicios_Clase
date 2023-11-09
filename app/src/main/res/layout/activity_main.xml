@@ -23,25 +23,173 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/pantallaBt"
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="match_parent"
                 android:background="@drawable/borde_redondo_text"
-                android:layout_marginRight="12dp"/>
+                android:layout_marginEnd="12dp"/>
 
             <Button
+                android:id="@+id/limpiarPantallaBt"
                 android:layout_width="0dp"
                 android:layout_weight="1.2"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:background="@drawable/boton_terciario_redondo"/>
+                android:background="@drawable/boton_terciario"
+                android:text="@string/limpiar_calculadora"
+                android:textSize="35sp"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:background="@drawable/borde_redondo_int">
+
+
+            <LinearLayout
+                style="@style/Layout_Botones">
+
+                <Button
+                    android:id="@+id/borrarPantallaBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/borrar_calculadora"/>
+
+                <Button
+                    android:id="@+id/signoBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/cambiar_signo"/>
+
+                <Button
+                    android:id="@+id/porcentajeBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/porcentaje"/>
+
+                <Button
+                    android:id="@+id/dividirBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/dividir"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout_Botones">
+
+                <Button
+                    android:id="@+id/sieteBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_7"/>
+
+                <Button
+                    android:id="@+id/ochoBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_8"/>
+
+                <Button
+                    android:id="@+id/nueveBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_9"/>
+
+                <Button
+                    android:id="@+id/multiplicarBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/multiplicar"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout_Botones">
+
+                <Button
+                    android:id="@+id/cuatroBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_4"/>
+
+                <Button
+                    android:id="@+id/cincoBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_5"/>
+
+                <Button
+                    android:id="@+id/seisBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_6"/>
+
+                <Button
+                    android:id="@+id/restarBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/restar"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout_Botones">
+
+                <Button
+                    android:id="@+id/unoBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_1"/>
+
+                <Button
+                    android:id="@+id/dosBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_2"/>
+
+                <Button
+                    android:id="@+id/tresBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_3"/>
+
+                <Button
+                    android:id="@+id/sumarBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/sumar"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout_Botones">
+
+                <Button
+                    android:id="@+id/ceroBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/numero_0"/>
+
+                <Button
+                    android:id="@+id/decimalesBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_principal"
+                    android:text="@string/decimales"/>
+
+                <Button
+                    android:id="@+id/igualBt"
+                    style="@style/Boton_Generico"
+                    android:background="@drawable/boton_secundario"
+                    android:text="@string/igual"/>
+
+
+            </LinearLayout>
 
 
         </LinearLayout>

@@ -19,4 +19,24 @@
     <string name="texto_llamada_default">Escribe un número para llamar</string>
     <string name="descripcion_boton_llamada_2">Pulsa para llamar al número indicado</string>
     <string name="saltar">Saltar</string>
+    <string name="borrar_calculadora">AC</string>
+    <string name="cambiar_signo">+/-</string>
+    <string name="porcentaje">%</string>
+    <string name="dividir">/</string>
+    <string name="numero_7">7</string>
+    <string name="numero_8">8</string>
+    <string name="numero_9">9</string>
+    <string name="multiplicar">X</string>
+    <string name="igual">=</string>
+    <string name="decimales">.</string>
+    <string name="numero_0">0</string>
+    <string name="sumar">+</string>
+    <string name="numero_3">3</string>
+    <string name="numero_2">2</string>
+    <string name="numero_1">1</string>
+    <string name="restar">-</string>
+    <string name="numero_6">6</string>
+    <string name="numero_5">5</string>
+    <string name="numero_4">4</string>
+    <string name="limpiar_calculadora">DEL</string>
 </resources>
