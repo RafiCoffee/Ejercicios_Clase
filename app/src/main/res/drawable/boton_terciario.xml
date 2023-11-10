@@ -2,5 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true" android:drawable="@drawable/boton_terciario_presionado"/>
     <item android:state_focused="true" android:drawable="@drawable/boton_terciario_encima"/>
+    <item android:state_hovered="true" android:drawable="@drawable/boton_terciario_encima"/>
     <item android:drawable="@drawable/boton_terciario_no_presionado"/>
 </selector>

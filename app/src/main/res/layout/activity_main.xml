@@ -23,12 +23,16 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/pantallaBt"
+                android:id="@+id/pantallaText"
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="match_parent"
+                android:gravity="center|end"
                 android:background="@drawable/borde_redondo_text"
-                android:layout_marginEnd="12dp"/>
+                android:layout_marginEnd="12dp"
+                android:textColor="@color/Negro"
+                android:textSize="50sp"
+                />
 
             <Button
                 android:id="@+id/limpiarPantallaBt"
