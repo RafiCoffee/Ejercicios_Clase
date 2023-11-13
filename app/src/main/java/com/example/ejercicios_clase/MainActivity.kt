@@ -108,12 +108,24 @@ class MainActivity : AppCompatActivity() {
             if(calculo > 0){
                 calculo = calculo - (calculo*2)
             }else{
-                calculo = calculo + (calculo*2)
+                calculo = calculo + (-calculo*2)
             }
 
             numero = calculo.toString()
+            if(numero.contains(".")){
+                if(numero.endsWith("0")){
+                    numero = numero.substringBefore('.')
+                }
+            }
 
-            pantalla.text = (pantalla.text.toString() + numero)
+            pantalla.text = (numero)
+        }
+
+        porcentajeBt.setOnClickListener{
+            if(!(numero.length - 1).equals(" ")){
+                numero += " % "
+                pantalla.text = (numero)
+            }
         }
 
         dividirBt.setOnClickListener{
@@ -152,9 +164,15 @@ class MainActivity : AppCompatActivity() {
                 "x"-> calculo = numeros[0].toFloat() * numeros[2].toFloat()
                 "-"-> calculo = numeros[0].toFloat() - numeros[2].toFloat()
                 "+"-> calculo = numeros[0].toFloat() + numeros[2].toFloat()
+                "%"-> calculo = (numeros[0].toFloat() / 100) * numeros[2].toFloat()
             }
 
             numero = calculo.toString()
+            if(numero.contains(".")){
+                if(numero.endsWith("0")){
+                    numero = numero.substringBefore('.')
+                }
+            }
             pantalla.text = numero
         }
     }
