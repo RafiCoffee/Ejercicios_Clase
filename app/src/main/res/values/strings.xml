@@ -39,4 +39,5 @@
     <string name="numero_5">5</string>
     <string name="numero_4">4</string>
     <string name="limpiar_calculadora">DEL</string>
+    <string name="autor">Ruben</string>
 </resources>

@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="MoradoOscuro">#630071</color>
     <color name="Negro">#000000</color>
-    <color name="NegroFondo">#080808</color>
+    <color name="NegroFondo">#0F0F0F</color>
     <color name="GrisClaro">#D5D5D5</color>
     <color name="Blanco">#FFFFFF</color>
     <color name="RojoClaro">#F89090</color>
@@ -21,7 +21,7 @@
     <color name="VerdeMuyClaro">#C7FFBD</color>
     <color name="VerdeClaro">#8AFF75</color>
     <color name="Verde">#11D800</color>
-    <color name="VerdeOscuro">#086600</color>
+    <color name="VerdeOscuro">#083000</color>
     <color name="Rosa">#FF00E0</color>
     <color name="NaranjaClaro">#F9A681</color>
     <color name="Naranja">#FF6400</color>
