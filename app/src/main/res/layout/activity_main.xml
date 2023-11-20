@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/Negro"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".ActivityCalculadora">
 
     <LinearLayout
         android:layout_width="match_parent"

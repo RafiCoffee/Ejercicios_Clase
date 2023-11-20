@@ -22,6 +22,7 @@
 
         <activity
             android:name=".MainActivity"
+
             android:exported="true"
             android:label="Calculadora"
             android:theme="@style/MainApp">
