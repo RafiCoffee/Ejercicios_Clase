@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class DadoActivity : AppCompatActivity() {
     private lateinit var dado: RelativeLayout
     private lateinit var dadoBt: Button
     private lateinit var terminarTurnoBt: Button

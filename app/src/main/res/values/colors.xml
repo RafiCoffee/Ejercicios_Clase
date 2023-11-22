@@ -9,6 +9,7 @@
     <color name="Negro">#000000</color>
     <color name="NegroFondo">#0F0F0F</color>
     <color name="GrisClaro">#D5D5D5</color>
+    <color name="GrisOscuro">#151515</color>
     <color name="Blanco">#FFFFFF</color>
     <color name="RojoClaro">#FF6666</color>
     <color name="Rojo">#FF0000</color>
