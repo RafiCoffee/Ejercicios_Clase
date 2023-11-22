@@ -15,8 +15,10 @@ import java.util.Calendar
 class MainAppActivity : AppCompatActivity(){
     private lateinit var llamadaBt : ImageButton
     private lateinit var internetBt : ImageButton
+    private lateinit var dadoBt : ImageButton
     private lateinit var alarmaBt : ImageButton
     private lateinit var ajustesBt : ImageButton
+    private lateinit var chistesBt : ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ejer_app)
@@ -52,14 +54,16 @@ class MainAppActivity : AppCompatActivity(){
     private fun asociarElementos(){
         llamadaBt = findViewById(R.id.LlamadaBt)
         internetBt = findViewById(R.id.InternetBt)
+        dadoBt = findViewById(R.id.DadoBt)
         alarmaBt = findViewById(R.id.AlarmaBt)
         ajustesBt = findViewById(R.id.AjustesBt)
+        chistesBt = findViewById(R.id.ChistesBt)
     }
 
     private fun cargarEventos(){
 
         llamadaBt.setOnClickListener{
-            val intentLlamada = Intent(this, Activity_Llamada_App :: class.java)
+            val intentLlamada = Intent(this, LlamadaActivity :: class.java)
 
             try {
                 startActivity(intentLlamada)
@@ -77,6 +81,16 @@ class MainAppActivity : AppCompatActivity(){
                 startActivity(intentInternet)
             }catch (e : ActivityNotFoundException){
                 Toast.makeText(this, "Error al acceder a la página", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        dadoBt.setOnClickListener {
+            val intentDados = Intent(this, DadoActivity :: class.java)
+
+            try{
+                startActivity(intentDados)
+            }catch (e : ActivityNotFoundException){
+                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
             }
         }
 

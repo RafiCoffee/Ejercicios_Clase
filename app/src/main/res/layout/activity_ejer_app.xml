@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/NegroFondo">
+    android:background="@color/NegroFondo"
+    tools:context=".MainAppActivity">
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,7 +69,7 @@
                 android:contentDescription="@string/boton_internet"/>
 
             <ImageButton
-                android:id="@+id/ActivityDadoBt"
+                android:id="@+id/DadoBt"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/borde_redondo"
@@ -109,7 +110,7 @@
                 android:contentDescription="@string/boton_ajustes"/>
 
             <ImageButton
-                android:id="@+id/ActivityChistesBt"
+                android:id="@+id/ChistesBt"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/borde_redondo"
