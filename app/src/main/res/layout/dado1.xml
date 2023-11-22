@@ -4,14 +4,15 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerInParent="true">
+        android:layout_width="165dp"
+        android:layout_height="165dp"
+        android:layout_centerInParent="true"
+        android:rotation="130">
 
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/Rojo"
+            android:background="@color/RojoClaro"
             android:layout_centerInParent="true"
             android:translationX="-20dp"
             android:translationY="10dp"
@@ -56,7 +57,7 @@
         <RelativeLayout
             android:layout_width="88dp"
             android:layout_height="104dp"
-            android:background="@color/RojoClaro"
+            android:background="@color/Rojo"
             android:padding="5dp"
             android:layout_centerInParent="true"
             android:translationX="9dp"

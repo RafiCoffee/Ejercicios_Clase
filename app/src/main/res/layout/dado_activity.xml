@@ -7,22 +7,219 @@
     android:background="@color/NegroFondo"
     tools:context=".ActivityCalculadora">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5sp"
+        android:background="@color/VerdeOscuro">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Titulo_Juego_Dado"
+            android:textColor="@color/Blanco"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Explicacion_Juego_Dado"
+            android:textColor="@color/Blanco"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
     <RelativeLayout
-        android:id="@+id/prueba"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/pruebaBt"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
-            android:background="#00FF0000"
-            android:layout_centerInParent="true">
+        <RelativeLayout
+            android:id="@+id/LayoutDado"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="700dp">
 
-        </Button>
+            <Button
+                android:id="@+id/dadoBt"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="#00FF0000"
+                android:layout_centerInParent="true"/>
 
-        <include layout="@layout/dado"/>
+            <include layout="@layout/dado1"/>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/turnoActual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/player_1"
+                android:textColor="@color/Blanco"
+                android:textAlignment="center"
+                android:textStyle="bold|italic"
+                android:textSize="40sp"
+                android:layout_marginBottom="30dp"/>
+
+            <Button
+                android:id="@+id/pararDadoBt"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/fin_Turno"
+                android:textColor="@color/Blanco"
+                android:textSize="40sp"
+                android:background="@drawable/borde_redondo"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/pancartaDadosPlayer1"
+            android:layout_width="225dp"
+            android:layout_height="250dp"
+            android:layout_centerVertical="true"
+            android:translationY="100dp"
+            android:translationX="-210dp">
+
+            <ImageView
+                android:id="@+id/victoriaPlayer1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/victoria_logo"
+                android:translationX="70dp"
+                android:scaleY="0"/>
+
+            <ImageView
+                android:id="@+id/derrotaPlayer1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/derrota_logo"
+                android:translationX="70dp"
+                android:scaleY="0"/>
+
+            <ImageView
+                android:id="@+id/empatePlayer1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/empate_player1"
+                android:translationX="80dp"
+                android:scaleY="0"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/pancarta_dados"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:translationY="-35dp"
+                android:translationX="45dp"
+                android:text="@string/player_1"
+                android:textColor="@color/RojoOscuro"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/puntosPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:translationY="20dp"
+                android:translationX="120dp"
+                android:textColor="@color/RojoOscuro"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pancartaDadosPlayer2"
+            android:layout_width="225dp"
+            android:layout_height="250dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:translationY="100dp"
+            android:translationX="210dp">
+
+            <ImageView
+                android:id="@+id/victoriaPlayer2"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/victoria_logo"
+                android:translationX="80dp"
+                android:scaleY="0"/>
+
+            <ImageView
+                android:id="@+id/derrotaPlayer2"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/derrota_logo"
+                android:translationX="80dp"
+                android:scaleY="0"/>
+
+            <ImageView
+                android:id="@+id/empatePlayer2"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/empate_player2"
+                android:translationX="80dp"
+                android:scaleY="0"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/pancarta_dados_mirror"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:translationY="-35dp"
+                android:translationX="60dp"
+                android:text="@string/player_2"
+                android:textColor="@color/AzulOscuro"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/puntosPlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:translationY="20dp"
+                android:translationX="60dp"
+                android:textColor="@color/AzulOscuro"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

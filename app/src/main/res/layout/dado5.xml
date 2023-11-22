@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:rotation="130">
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/RojoClaro"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="10dp"
+            android:layout_centerInParent="true"
+            android:translationX="-20dp"
+            android:translationY="10dp"
+            android:rotation="-2"
+            android:rotationY="-30"
+            android:rotationX="-10">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/punto_dado"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="95dp"
+            android:background="@color/RojoOscuro"
+            android:padding="5dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:translationX="50dp"
+            android:rotation="4"
+            android:rotationY="70"
+            android:rotationX="-15">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:translationY="10dp"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:translationY="5dp"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:translationY="60dp"
+                android:background="@drawable/punto_dado"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="88dp"
+            android:layout_height="104dp"
+            android:background="@color/Rojo"
+            android:padding="5dp"
+            android:layout_centerInParent="true"
+            android:translationX="9dp"
+            android:translationY="-44dp"
+            android:rotation="28.4"
+            android:rotationX="79">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/punto_dado"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/punto_dado"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

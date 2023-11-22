@@ -40,4 +40,9 @@
     <string name="numero_4">4</string>
     <string name="limpiar_calculadora">DEL</string>
     <string name="autor">Ruben</string>
+    <string name="Explicacion_Juego_Dado">El cerdo consiste en tirar el dado las veces que quieras sumando los resultados, pero si el resultado es uno, tu total actual será el cociente del número que hayas sacado anteriormente. Gana quien consiga más puntos.</string>
+    <string name="Titulo_Juego_Dado">El Cerdo</string>
+    <string name="fin_Turno">Finalizar turno</string>
+    <string name="player_1">Jugador 1</string>
+    <string name="player_2">Jugador 2</string>
 </resources>
