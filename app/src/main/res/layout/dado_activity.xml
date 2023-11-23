@@ -38,6 +38,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageButton
+            android:id="@+id/volverBt"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:padding="10dp"
+            android:background="@drawable/borde_redondo"
+            android:src="@drawable/volver_logo"
+            android:scaleType="centerCrop"
+            android:translationY="165dp"
+            android:translationX="20dp"/>
+
+        <ImageButton
+            android:id="@+id/reiniciarBt"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:padding="10dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/borde_redondo"
+            android:src="@drawable/reintentar_logo"
+            android:scaleType="centerCrop"
+            android:translationY="165dp"
+            android:translationX="-20dp"
+            android:scaleY="0"/>
+
         <RelativeLayout
             android:id="@+id/LayoutDado"
             android:orientation="vertical"
@@ -107,7 +131,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/victoria_logo"
                 android:translationX="70dp"
-                android:scaleY="0"/>
+                android:scaleX="0"/>
 
             <ImageView
                 android:id="@+id/derrotaPlayer1"
@@ -116,7 +140,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/derrota_logo"
                 android:translationX="70dp"
-                android:scaleY="0"/>
+                android:scaleX="0"/>
 
             <ImageView
                 android:id="@+id/empatePlayer1"
@@ -125,7 +149,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/empate_player1"
                 android:translationX="80dp"
-                android:scaleY="0"/>
+                android:scaleX="0"/>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -172,7 +196,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/victoria_logo"
                 android:translationX="80dp"
-                android:scaleY="0"/>
+                android:scaleX="0"/>
 
             <ImageView
                 android:id="@+id/derrotaPlayer2"
@@ -181,7 +205,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/derrota_logo"
                 android:translationX="80dp"
-                android:scaleY="0"/>
+                android:scaleX="0"/>
 
             <ImageView
                 android:id="@+id/empatePlayer2"
@@ -190,7 +214,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/empate_player2"
                 android:translationX="80dp"
-                android:scaleY="0"/>
+                android:scaleX="0"/>
 
             <ImageView
                 android:layout_width="match_parent"

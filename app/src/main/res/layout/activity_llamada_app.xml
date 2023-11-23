@@ -3,8 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/NegroFondo"
     tools:context=".LlamadaActivity">
+
+    <ImageButton
+        android:id="@+id/volverBt"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:padding="10dp"
+        android:background="@drawable/borde_redondo"
+        android:src="@drawable/volver_logo"
+        android:scaleType="centerCrop"
+        android:translationY="20dp"
+        android:translationX="20dp"/>
 
     <LinearLayout
         android:orientation="vertical"

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Ejercicios_Clase" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Ejercicios_Clase" parent="Theme.AppCompat.Light.DarkActionBar" />
 
     <style name="MainApp" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#FF0000</item>
         <item name="android:colorBackground">#00BFFF</item>
         <item name="colorPrimaryDark">#50000F</item>
     </style>
+
 </resources>

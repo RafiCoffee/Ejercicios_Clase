@@ -132,7 +132,25 @@
         <LinearLayout
             android:layout_width="350dp"
             android:layout_height="125dp"
+            android:gravity="center"
+            android:paddingHorizontal="50dp"
             android:background="@drawable/borde_redondo">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/usuario_logo"
+                android:layout_marginHorizontal="15dp"/>
+
+            <Button
+                android:id="@+id/cerrarSesionBt"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_redondo_int"
+                android:text="Cerrar Sesión"
+                android:textSize="20sp"
+                android:padding="5dp"
+                android:layout_marginHorizontal="15dp"/>
 
         </LinearLayout>
 

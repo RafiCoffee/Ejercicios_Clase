@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.provider.Settings
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ class MainAppActivity : AppCompatActivity(){
     private lateinit var alarmaBt : ImageButton
     private lateinit var ajustesBt : ImageButton
     private lateinit var chistesBt : ImageButton
+    private lateinit var cerrarSesionBt: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ejer_app)
@@ -58,6 +60,7 @@ class MainAppActivity : AppCompatActivity(){
         alarmaBt = findViewById(R.id.AlarmaBt)
         ajustesBt = findViewById(R.id.AjustesBt)
         chistesBt = findViewById(R.id.ChistesBt)
+        cerrarSesionBt = findViewById(R.id.cerrarSesionBt)
     }
 
     private fun cargarEventos(){
@@ -117,6 +120,16 @@ class MainAppActivity : AppCompatActivity(){
                 startActivity(intentAjustes)
             }catch (e : ActivityNotFoundException){
                 Toast.makeText(this, "Error al acceder a los ajustes", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        cerrarSesionBt.setOnClickListener {
+            val intentCerrarSesion = Intent(this, InicioSesionActivity :: class.java)
+
+            try {
+                startActivity(intentCerrarSesion)
+            }catch (e : ActivityNotFoundException){
+                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
             }
         }
 
