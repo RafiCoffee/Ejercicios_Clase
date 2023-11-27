@@ -16,8 +16,6 @@ class InicioSesionActivity : AppCompatActivity(){
     private lateinit var errorText: TextView
     private lateinit var inicioSesionBt: Button
     private lateinit var registrarUsuarioBt: Button
-
-    private val listaUsuarios = ListaUsuarios
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_iniciar_sesion)
@@ -90,9 +88,12 @@ class InicioSesionActivity : AppCompatActivity(){
             errorText.text = "Existe algún campo vacío"
             return false
         }else{
-            if(!listaUsuarios.obtenerUsuarios().size.equals(0)){
+            if(!ListaUsuarios.obtenerUsuarios().size.equals(0)){
                 for(i in 0 until ListaUsuarios.obtenerUsuarios().size){
-                    if (listaUsuarios.obtenerUsuarios().get(i).nombreUsuario.equals(usuarioEdText.text.toString()) && listaUsuarios.obtenerUsuarios().get(i).claveUsuario.equals(contrasennaEdText.text.toString())){
+                    if (ListaUsuarios.obtenerUsuarios().get(i).nombreUsuario.equals(usuarioEdText.text.toString()) &&
+                        ListaUsuarios.obtenerUsuarios().get(i).claveUsuario.equals(contrasennaEdText.text.toString())){
+
+                        ListaUsuarios.obtenerUsuarios().get(i).usuarioIniciado = true
                         return true
                     }
                 }

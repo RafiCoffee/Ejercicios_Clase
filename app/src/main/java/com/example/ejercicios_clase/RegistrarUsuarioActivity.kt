@@ -16,8 +16,6 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
     private lateinit var confirmarContrasennaEdText: EditText
     private lateinit var errorText: TextView
     private lateinit var registrarUsuarioBt: Button
-
-    private val listaUsuarios = ListaUsuarios
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_usuario)
@@ -84,7 +82,7 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
             errorText.text = "Las contraseñas no coinciden"
             return false
         }else{
-            listaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString(), contrasennaEdText.text.toString()))
+            ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString(), contrasennaEdText.text.toString(), false))
             return true
         }
     }

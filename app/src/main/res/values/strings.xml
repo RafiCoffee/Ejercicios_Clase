@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ejercicios_Clase</string>
+    <string name="app_name">Aplicacion 2</string>
     <string name="saludo">Saludar</string>
     <string name="noSaludo">No Saludar</string>
     <string name="saludoClase">Saludar clase</string>
@@ -50,4 +50,7 @@
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="registrarte">Registrar Usuario</string>
     <string name="confirmar_contrasenna">Confirmar Contraseña</string>
+    <string name="boton_chistes">Boton De Chistes</string>
+    <string name="boton_de_dados">Boton De Dados</string>
+    <string name="generar_chiste">Generar chiste</string>
 </resources>

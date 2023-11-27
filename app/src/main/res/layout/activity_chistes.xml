@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/NegroFondo"
+    tools:context=".ChistesActivity">
+
+    <TextView
+        android:id="@+id/chisteText"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:padding="25dp"
+        android:fontFamily="@font/lost_emerald_font"
+        android:textColor="@color/Blanco"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+
+
+    <Button
+        android:id="@+id/chisteBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borde_redondo"
+        android:layout_centerInParent="true"
+        android:translationY="100dp"
+        android:padding="20dp"
+        android:text="@string/generar_chiste"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

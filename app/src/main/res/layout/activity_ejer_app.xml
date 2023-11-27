@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -23,6 +23,7 @@
             android:contentDescription="@string/imagen_personaje"/>
 
         <TextView
+            android:id="@+id/nombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
@@ -69,15 +70,15 @@
                 android:contentDescription="@string/boton_internet"/>
 
             <ImageButton
-                android:id="@+id/DadoBt"
+                android:id="@+id/AlarmaBt"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/borde_redondo"
                 android:layout_marginHorizontal="15dp"
-                android:src="@drawable/dado_logo"
+                android:src="@drawable/alarma_logo"
                 android:scaleType="fitXY"
                 android:padding="10dp"
-                android:contentDescription="@string/boton_internet"/>
+                android:contentDescription="@string/boton_alarma"/>
 
         </LinearLayout>
 
@@ -88,15 +89,26 @@
             android:gravity="center">
 
             <ImageButton
-                android:id="@+id/AlarmaBt"
+                android:id="@+id/DadoBt"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/borde_redondo"
                 android:layout_marginHorizontal="15dp"
-                android:src="@drawable/alarma_logo"
+                android:src="@drawable/dado_logo"
                 android:scaleType="fitXY"
                 android:padding="10dp"
-                android:contentDescription="@string/boton_alarma"/>
+                android:contentDescription="@string/boton_de_dados"/>
+
+            <ImageButton
+                android:id="@+id/ChistesBt"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/borde_redondo"
+                android:layout_marginHorizontal="15dp"
+                android:src="@drawable/chistes_logo"
+                android:scaleType="fitXY"
+                android:padding="10dp"
+                android:contentDescription="@string/boton_chistes"/>
 
             <ImageButton
                 android:id="@+id/AjustesBt"
@@ -108,17 +120,6 @@
                 android:scaleType="fitXY"
                 android:padding="10dp"
                 android:contentDescription="@string/boton_ajustes"/>
-
-            <ImageButton
-                android:id="@+id/ChistesBt"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/borde_redondo"
-                android:layout_marginHorizontal="15dp"
-                android:src="@drawable/chistes_logo"
-                android:scaleType="fitXY"
-                android:padding="10dp"
-                android:contentDescription="@string/boton_internet"/>
 
         </LinearLayout>
 
