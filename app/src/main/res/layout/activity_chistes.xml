@@ -7,6 +7,12 @@
     android:background="@color/NegroFondo"
     tools:context=".ChistesActivity">
 
+    <ProgressBar
+        android:id="@+id/cargadorChistes"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="invisible"/>
+
     <TextView
         android:id="@+id/chisteText"
         android:layout_width="match_parent"
@@ -15,9 +21,8 @@
         android:fontFamily="@font/lost_emerald_font"
         android:textColor="@color/Blanco"
         android:textSize="20sp"
-        android:textAlignment="center"/>
-
-
+        android:textAlignment="center"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/chisteBt"

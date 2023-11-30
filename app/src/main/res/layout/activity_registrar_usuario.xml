@@ -4,9 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/NegroFondo"
     android:gravity="center"
-    android:paddingBottom="125dp"
+    android:background="@color/NegroFondo"
+    android:paddingVertical="20dp"
     tools:context=".RegistrarUsuarioActivity">
 
     <ImageView
@@ -16,123 +16,202 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingVertical="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginVertical="10dp">
+            android:layout_marginVertical="10dp"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
                 android:text="@string/usuario"
-                android:textColor="@color/Blanco"
-                android:textSize="25sp"
                 android:textAlignment="textEnd"
-                android:layout_marginEnd="20dp"/>
+                android:textColor="@color/Blanco"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/usuarioEditText"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@color/Blanco"
                 android:hint="@string/usuario"
-                android:paddingStart="5dp"/>
+                android:paddingStart="5dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginVertical="10dp">
+            android:layout_marginVertical="10dp"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
                 android:text="@string/contrasenna"
-                android:textColor="@color/Blanco"
-                android:textSize="25sp"
                 android:textAlignment="textEnd"
-                android:layout_marginEnd="20dp"/>
+                android:textColor="@color/Blanco"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/contrasennaEditText"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@color/Blanco"
                 android:hint="@string/contrasenna"
                 android:inputType="textPassword"
-                android:paddingStart="5dp"/>
+                android:paddingStart="5dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginVertical="10dp">
+            android:layout_marginVertical="10dp"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
                 android:text="@string/confirmar_contrasenna"
-                android:textColor="@color/Blanco"
-                android:textSize="25sp"
                 android:textAlignment="textEnd"
-                android:layout_marginEnd="20dp"/>
+                android:textColor="@color/Blanco"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/confirmarContrasennaEditText"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@color/Blanco"
                 android:hint="@string/contrasenna"
                 android:inputType="textPassword"
-                android:paddingStart="5dp"/>
+                android:paddingStart="5dp" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <RadioGroup
+                    android:id="@+id/seleccionSexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <RadioButton
+                        android:id="@+id/sexoHombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:buttonTint="@color/Blanco"
+                        android:text="@string/hombre"
+                        android:textColor="@color/Blanco"
+                        android:textSize="20sp"/>
+
+                    <RadioButton
+                        android:id="@+id/sexoMujer"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:buttonTint="@color/Blanco"
+                        android:text="@string/mujer"
+                        android:textColor="@color/Blanco"
+                        android:textSize="20sp" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="top"
+                android:paddingStart="30dp"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/tipoUsuario"
+                    android:textColor="@color/Blanco"
+                    android:textSize="20sp"
+                    android:textAlignment="center"/>
+
+                <Spinner
+                    android:id="@+id/tipoUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/Blanco"
+                    android:prompt="@string/tipoUsuario"
+                    android:entries="@array/opciones_spinner"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/aceptarCondiciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/Blanco"
+            android:text="@string/aceptar_condiciones"
+            android:textAlignment="center"
+            android:textColor="@color/Blanco"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/errorText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:textColor="@color/RojoOscuro"
             android:textSize="18sp"
-            android:textStyle="italic"
-            android:textAlignment="center"/>
+            android:textStyle="italic" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:gravity="center"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="10dp">
+            android:layout_marginVertical="10dp"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/registrarUsuarioBt"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/borde_redondo"
+                android:padding="10dp"
                 android:text="@string/registrarte"
                 android:textColor="@color/Blanco"
-                android:textSize="20sp"
-                android:padding="10dp"
-                android:layout_marginHorizontal="10dp"/>
+                android:textSize="20sp" />
 
         </LinearLayout>
 

@@ -25,11 +25,21 @@
         <TextView
             android:id="@+id/nombreUsuario"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/Marca_Ruben"
             android:textAlignment="center"
             android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/Blanco"/>
+
+        <TextView
+            android:id="@+id/tipoUsuarioText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/Blanco"/>
 

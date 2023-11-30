@@ -24,13 +24,14 @@ class MainAppActivity : AppCompatActivity(){
     private lateinit var cerrarSesionBt: Button
 
     private lateinit var nombreUsuarioText: TextView
+    private lateinit var tipoUsuarioText: TextView
     private var idUsuario: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ejer_app)
 
         asociarElementos()
-        cambiarNombreUsuario()
+        cambiarUsuario()
         cargarEventos()
     }
 
@@ -68,6 +69,7 @@ class MainAppActivity : AppCompatActivity(){
         cerrarSesionBt = findViewById(R.id.cerrarSesionBt)
 
         nombreUsuarioText = findViewById(R.id.nombreUsuario)
+        tipoUsuarioText = findViewById(R.id.tipoUsuarioText)
     }
 
     private fun cargarEventos(){
@@ -153,10 +155,11 @@ class MainAppActivity : AppCompatActivity(){
 
     }
 
-    fun cambiarNombreUsuario(){
+    fun cambiarUsuario(){
         for(i in 0 until ListaUsuarios.obtenerUsuarios().size){
             if(ListaUsuarios.obtenerUsuarios().get(i).usuarioIniciado){
                 nombreUsuarioText.text = ListaUsuarios.obtenerUsuarios().get(i).nombreUsuario
+                tipoUsuarioText.text = ListaUsuarios.obtenerUsuarios().get(i).tipoUsuario
                 idUsuario = i
             }
         }

@@ -53,4 +53,16 @@
     <string name="boton_chistes">Boton De Chistes</string>
     <string name="boton_de_dados">Boton De Dados</string>
     <string name="generar_chiste">Generar chiste</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="aceptar_condiciones">Acepto las condiciones</string>
+    <string name="tipoUsuario">Tipo De Usuario</string>
+
+    <string-array name="opciones_spinner">
+        <item>Administrador</item>
+        <item>Profesor</item>
+        <item>Alumno</item>
+        <item>Beta-Tester</item>
+    </string-array>
+
 </resources>
