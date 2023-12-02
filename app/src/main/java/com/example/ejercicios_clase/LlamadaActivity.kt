@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 class LlamadaActivity : AppCompatActivity() {
-
+    private lateinit var volverBt: ImageButton
     private lateinit var llamadaBt : ImageButton
     private lateinit var cuadroTexto : EditText
     private var REQUEST_CODE_LLAMADA : Int = 1
@@ -22,24 +22,9 @@ class LlamadaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_llamada_app)
 
-        llamadaBt = findViewById(R.id.LlamadaDirectaBt)
-        cuadroTexto = findViewById(R.id.CuadroTelefono)
+        asociarElementos()
+        cargarEventos()
 
-        llamadaBt.setOnClickListener{
-            if(cuadroTexto.text == null){
-                AppLlamada()
-            }else{
-                try {
-                    var comprobarTelefonoInt : Int = cuadroTexto.text.toString().toInt()
-
-                    Toast.makeText(this, "Llamando al número introducido", Toast.LENGTH_SHORT).show()
-                    MarcarLlamada(cuadroTexto.text.toString())
-                }catch (e : NumberFormatException){
-                    Toast.makeText(this, "El numero introducido no es válido, redirigiendo a la app de llamadas", Toast.LENGTH_SHORT).show()
-                    AppLlamada()
-                }
-            }
-        }
     }
 
     override fun onStart() {
@@ -64,6 +49,40 @@ class LlamadaActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    fun asociarElementos(){
+        volverBt = findViewById(R.id.volverBt)
+        llamadaBt = findViewById(R.id.LlamadaDirectaBt)
+        cuadroTexto = findViewById(R.id.CuadroTelefono)
+    }
+
+    fun cargarEventos(){
+        llamadaBt.setOnClickListener{
+            if(cuadroTexto.text == null){
+                AppLlamada()
+            }else{
+                try {
+                    var comprobarTelefonoInt : Int = cuadroTexto.text.toString().toInt()
+
+                    Toast.makeText(this, "Llamando al número introducido", Toast.LENGTH_SHORT).show()
+                    MarcarLlamada(cuadroTexto.text.toString())
+                }catch (e : NumberFormatException){
+                    Toast.makeText(this, "El numero introducido no es válido, redirigiendo a la app de llamadas", Toast.LENGTH_SHORT).show()
+                    AppLlamada()
+                }
+            }
+        }
+
+        volverBt.setOnClickListener {
+            val intentMainActivity = Intent(this, MainAppActivity :: class.java)
+
+            try{
+                startActivity(intentMainActivity)
+            }catch (e : ActivityNotFoundException){
+                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun AppLlamada(){

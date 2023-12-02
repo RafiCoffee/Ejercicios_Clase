@@ -7,6 +7,8 @@ import android.text.method.PasswordTransformationMethod
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
@@ -15,6 +17,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class RegistrarUsuarioActivity: AppCompatActivity() {
+    private lateinit var volverBt: ImageButton
+    private lateinit var imagenUsuario: ImageView
     private lateinit var usuarioEdText: EditText
     private lateinit var contrasennaEdText: EditText
     private lateinit var confirmarContrasennaEdText: EditText
@@ -59,6 +63,8 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
     }
 
     fun asociarElementos(){
+        volverBt = findViewById(R.id.volverBt)
+        imagenUsuario = findViewById(R.id.imagenUsuario)
         usuarioEdText = findViewById(R.id.usuarioEditText)
         contrasennaEdText = findViewById(R.id.contrasennaEditText)
         contrasennaEdText.transformationMethod = PasswordTransformationMethod()
@@ -72,10 +78,10 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
     }
 
     fun cargarEventos(){
+        val intentIniciarSesionActivity = Intent(this, InicioSesionActivity :: class.java)
+
         registrarUsuarioBt.setOnClickListener {
             if(comprobarRegistro()){
-                val intentIniciarSesionActivity = Intent(this, InicioSesionActivity :: class.java)
-
                 try{
                     startActivity(intentIniciarSesionActivity)
                 }catch (e : ActivityNotFoundException){
@@ -87,6 +93,20 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
         seleccionSexo.setOnCheckedChangeListener { group, checkedId ->
             val sexo = findViewById<RadioButton>(checkedId)
             esHombre = sexo.text.equals("Hombre")
+
+            if(esHombre == true){
+                imagenUsuario.setImageResource(R.drawable.usuario_hombre_logo)
+            }else if (esHombre == false){
+                imagenUsuario.setImageResource(R.drawable.usuario_mujer_logo)
+            }
+        }
+
+        volverBt.setOnClickListener {
+            try{
+                startActivity(intentIniciarSesionActivity)
+            }catch (e : ActivityNotFoundException){
+                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

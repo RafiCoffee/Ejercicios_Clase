@@ -1,9 +1,9 @@
 package com.example.ejercicios_clase
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.ViewPropertyAnimator
 import android.widget.Button
 import android.widget.ImageButton
@@ -41,7 +41,7 @@ class DadoActivity : AppCompatActivity() {
     private var posicionInicialY: Float = 0f
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dado_activity)
+        setContentView(R.layout.activity_dado)
 
         asociarElementos()
 
@@ -50,6 +50,16 @@ class DadoActivity : AppCompatActivity() {
 
         reiniciarBt.setOnClickListener {
             reiniciarPantalla()
+        }
+
+        volverBt.setOnClickListener {
+            val intentMainActivity = Intent(this, MainAppActivity :: class.java)
+
+            try{
+                startActivity(intentMainActivity)
+            }catch (e : ActivityNotFoundException){
+                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
+            }
         }
 
         if(!finJuego){
@@ -102,6 +112,7 @@ class DadoActivity : AppCompatActivity() {
         empatePlayer2 = findViewById(R.id.empatePlayer2)
     }
 
+    @SuppressLint("SetTextI18n")
     fun cargarEventos(){
         dadoBt.setOnClickListener {
             dadoBt.isEnabled = false
@@ -115,9 +126,9 @@ class DadoActivity : AppCompatActivity() {
                 val animacionDado2: ViewPropertyAnimator = dado.animate().rotation(0f).translationY(posicionInicialY).setDuration(275)
 
                 val numeroGenerado = generarNumeroAleatorio()
+                numeroActual = cambiarDado(dado, numeroGenerado)
 
                 if(turnoPlayer1){
-                    numeroActual = cambiarDado(dado, numeroGenerado)
 
                     if(numeroActual == 1){
                         totalPuntosPlayer1 /= numeroAnterior
@@ -130,7 +141,6 @@ class DadoActivity : AppCompatActivity() {
                     turnoActual.text = turno + "\n" + totalPuntosPlayer1
 
                 }else if(turnoPlayer2){
-                    numeroActual = cambiarDado(dado, numeroGenerado)
 
                     if(numeroActual == 1){
                         totalPuntosPlayer2 /= numeroAnterior
@@ -157,16 +167,6 @@ class DadoActivity : AppCompatActivity() {
                 terminarTurno(totalPuntosPlayer1)
             }else if(turnoPlayer2){
                 terminarTurno(totalPuntosPlayer2)
-            }
-        }
-
-        volverBt.setOnClickListener {
-            val intentMainActivity = Intent(this, MainAppActivity :: class.java)
-
-            try{
-                startActivity(intentMainActivity)
-            }catch (e : ActivityNotFoundException){
-                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
             }
         }
     }

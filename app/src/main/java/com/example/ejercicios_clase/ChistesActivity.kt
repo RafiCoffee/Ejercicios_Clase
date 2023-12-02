@@ -1,10 +1,13 @@
 package com.example.ejercicios_clase
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -14,6 +17,7 @@ import androidx.core.content.res.ResourcesCompat
 import java.util.Locale
 
 class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
+    private lateinit var volverBt: ImageButton
     private lateinit var chisteText: TextView
     private lateinit var chisteBt: Button
     private lateinit var cargaChiste: ProgressBar
@@ -36,6 +40,10 @@ class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     override fun onPause() {
+        if (vozChistes.isSpeaking) {
+            vozChistes.stop()
+        }
+
         super.onPause()
     }
 
@@ -44,6 +52,10 @@ class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     override fun onStop() {
+        if (vozChistes.isSpeaking) {
+            vozChistes.stop()
+        }
+
         super.onStop()
     }
 
@@ -56,6 +68,7 @@ class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
         super.onDestroy()
     }
     fun asociarElementos(){
+        volverBt = findViewById(R.id.volverBt)
         chisteText = findViewById(R.id.chisteText)
         chisteBt = findViewById(R.id.chisteBt)
         cargaChiste = findViewById(R.id.cargadorChistes)
@@ -65,18 +78,32 @@ class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
 
     fun cargarEventos(){
         chisteBt.setOnClickListener {
-            cargaChiste.visibility = View.VISIBLE
-            chisteText.visibility = View.INVISIBLE
-            chisteText.typeface = ResourcesCompat.getFont(this, R.font.lost_emerald_font)
-            val chiste = ListaChistes.mostrarChiste()
+            if(!vozChistes.isSpeaking){
+                cargaChiste.visibility = View.VISIBLE
+                chisteText.visibility = View.INVISIBLE
+                chisteText.typeface = ResourcesCompat.getFont(this, R.font.lost_emerald_font)
+                val chiste = ListaChistes.mostrarChiste()
 
-            chisteBt.postDelayed({
-                cargaChiste.visibility = View.INVISIBLE
-                chisteText.visibility = View.VISIBLE
+                chisteBt.postDelayed({
+                    cargaChiste.visibility = View.INVISIBLE
+                    chisteText.visibility = View.VISIBLE
 
-                chisteText.text = chiste
-                vozChistes.speak(chiste, TextToSpeech.QUEUE_FLUSH, null, null)
+                    chisteText.text = chiste
+                    vozChistes.speak(chiste, TextToSpeech.QUEUE_FLUSH, null, null)
                 }, 4000)
+            }else{
+                Toast.makeText(this, "Aún no se ha terminado de leer el chiste o no se ha inicializado por completo", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        volverBt.setOnClickListener {
+            val intentMainActivity = Intent(this, MainAppActivity :: class.java)
+
+            try{
+                startActivity(intentMainActivity)
+            }catch (e : ActivityNotFoundException){
+                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

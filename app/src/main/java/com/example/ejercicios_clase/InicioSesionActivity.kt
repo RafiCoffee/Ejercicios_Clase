@@ -21,7 +21,6 @@ class InicioSesionActivity : AppCompatActivity(){
         setContentView(R.layout.activity_iniciar_sesion)
 
         asociarElementos()
-
         cargarEventos()
 
     }

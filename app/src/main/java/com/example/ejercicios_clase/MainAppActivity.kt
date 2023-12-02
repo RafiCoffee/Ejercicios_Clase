@@ -8,6 +8,7 @@ import android.provider.AlarmClock
 import android.provider.Settings
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ class MainAppActivity : AppCompatActivity(){
     private lateinit var dadoBt : ImageButton
     private lateinit var chistesBt : ImageButton
     private lateinit var ajustesBt : ImageButton
+    private lateinit var imagenUsuario: ImageView
     private lateinit var cerrarSesionBt: Button
 
     private lateinit var nombreUsuarioText: TextView
@@ -66,6 +68,7 @@ class MainAppActivity : AppCompatActivity(){
         dadoBt = findViewById(R.id.DadoBt)
         chistesBt = findViewById(R.id.ChistesBt)
         ajustesBt = findViewById(R.id.AjustesBt)
+        imagenUsuario = findViewById(R.id.imagenUsuario)
         cerrarSesionBt = findViewById(R.id.cerrarSesionBt)
 
         nombreUsuarioText = findViewById(R.id.nombreUsuario)
@@ -161,6 +164,12 @@ class MainAppActivity : AppCompatActivity(){
                 nombreUsuarioText.text = ListaUsuarios.obtenerUsuarios().get(i).nombreUsuario
                 tipoUsuarioText.text = ListaUsuarios.obtenerUsuarios().get(i).tipoUsuario
                 idUsuario = i
+
+                if(ListaUsuarios.obtenerUsuarios().get(i).esHombre){
+                    imagenUsuario.setImageResource(R.drawable.usuario_hombre_logo)
+                }else{
+                    imagenUsuario.setImageResource(R.drawable.usuario_mujer_logo)
+                }
             }
         }
     }

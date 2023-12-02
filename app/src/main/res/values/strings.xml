@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Aplicacion 2</string>
+    <string name="app_name">Aplicación Ruben</string>
     <string name="saludo">Saludar</string>
     <string name="noSaludo">No Saludar</string>
     <string name="saludoClase">Saludar clase</string>
@@ -57,6 +57,7 @@
     <string name="mujer">Mujer</string>
     <string name="aceptar_condiciones">Acepto las condiciones</string>
     <string name="tipoUsuario">Tipo De Usuario</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
 
     <string-array name="opciones_spinner">
         <item>Administrador</item>
