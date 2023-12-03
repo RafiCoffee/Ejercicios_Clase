@@ -22,6 +22,7 @@ class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var chisteBt: Button
     private lateinit var cargaChiste: ProgressBar
     private lateinit var vozChistes: TextToSpeech
+    private var generandoChiste: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chistes)
@@ -78,7 +79,8 @@ class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
 
     fun cargarEventos(){
         chisteBt.setOnClickListener {
-            if(!vozChistes.isSpeaking){
+            if(!generandoChiste || !vozChistes.isSpeaking){
+                generandoChiste = true
                 cargaChiste.visibility = View.VISIBLE
                 chisteText.visibility = View.INVISIBLE
                 chisteText.typeface = ResourcesCompat.getFont(this, R.font.lost_emerald_font)
@@ -90,9 +92,10 @@ class ChistesActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
 
                     chisteText.text = chiste
                     vozChistes.speak(chiste, TextToSpeech.QUEUE_FLUSH, null, null)
+                    generandoChiste = false
                 }, 4000)
             }else{
-                Toast.makeText(this, "Aún no se ha terminado de leer el chiste o no se ha inicializado por completo", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Aún no se ha terminado de leer el chiste", Toast.LENGTH_SHORT).show()
             }
         }
 
