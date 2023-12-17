@@ -1,96 +1,148 @@
 <?xml version ="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width ="match_parent"
-    android:layout_height ="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal ="16dp"
-    android:layout_marginVertical ="8dp"
-    app:cardCornerRadius ="30dp"
-    app:cardElevation ="10dp">
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width ="match_parent"
-        android:layout_height ="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/VerdeOscuro">
 
-        <ImageView
-            android:id="@+id/iv_hotel"
-            android:layout_width ="150dp"
-            android:layout_height ="165dp"
-            app:layout_constraintStart_toStartOf ="parent"
-            app:layout_constraintTop_toTopOf ="parent"
-            tools:background ="@color/NegroFondo"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txtview_name"
-            android:layout_width ="wrap_content"
-            android:layout_height ="wrap_content"
-            tools:text="Name ver"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/Negro"
-            app:layout_constraintStart_toEndOf ="@id/iv_hotel"
-            app:layout_constraintEnd_toEndOf ="parent"
-            app:layout_constraintTop_toTopOf ="parent"/>
+            <ImageView
+                android:id="@+id/imagen_videojuego"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:background="@color/NegroFondo"/>
 
-        <TextView
-            android:id="@+id/txtview_city"
-            android:layout_width ="wrap_content"
-            android:layout_height ="wrap_content"
-            app:layout_constraintStart_toEndOf ="@id/iv_hotel"
-            app:layout_constraintTop_toBottomOf ="@id/txtview_name"
-            app:layout_constraintEnd_toEndOf ="parent"
-            tools:text="City para ver"
-            android:textColor = "@color/Blanco"
-            android:textSize = "18sp"
-            android:layout_marginTop ="15dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="3dp">
 
-        <TextView
-            android:id="@+id/txtview_province"
-            android:layout_width ="wrap_content"
-            android:layout_height ="wrap_content"
-            app:layout_constraintStart_toEndOf ="@id/iv_hotel"
-            app:layout_constraintTop_toBottomOf ="@id/txtview_city"
-            app:layout_constraintEnd_toEndOf ="parent"
-            tools:text="Provincia para ver"
-            android:textColor = "@color/Blanco"
-            android:textSize = "18sp"/>
+                <LinearLayout
+                    android:id="@+id/layout_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/imagen_videojuego"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/txtview_phone"
-            android:layout_width ="wrap_content"
-            android:layout_height ="wrap_content"
-            app:layout_constraintStart_toEndOf ="@id/iv_hotel"
-            app:layout_constraintTop_toBottomOf ="@id/txtview_province"
-            app:layout_constraintEnd_toEndOf ="parent"
-            tools:text="000 000 000"
-            android:textColor = "@color/Blanco"
-            android:textSize = "20sp"/>
+                    <TextView
+                        android:id="@+id/titulo_videojuego"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="5dp"
+                        tools:text="Titulo Videojuego"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/Negro"
+                        android:shadowColor="@color/Blanco"
+                        android:shadowDx="2"
+                        android:shadowRadius="10"/>
 
-        <ImageView
-            android:id="@+id/btn_edit"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="5dp"
-            android:src="@drawable/lapiz_logo"
-            android:background="@drawable/borde_negro"
-            app:layout_constraintStart_toEndOf="@id/iv_hotel"
-            app:layout_constraintTop_toBottomOf="@id/txtview_phone" />
+                </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btn_delete"
-            android:layout_width ="40dp"
-            android:layout_height ="40dp"
-            android:padding="5dp"
-            android:src="@drawable/papelera_logo"
-            android:background="@drawable/borde_negro"
-            app:layout_constraintEnd_toEndOf ="parent"
-            app:layout_constraintStart_toEndOf ="@id/btn_edit"
-            app:layout_constraintTop_toBottomOf ="@id/txtview_phone"
-            app:layout_constraintHorizontal_bias ="0.1"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toEndOf="@+id/imagen_videojuego"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_titulo">
+
+                    <TextView
+                        android:id="@+id/genero_videojuego"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Genero Videojuego"
+                        android:textColor="@color/Blanco"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@id/imagen_videojuego"
+                        app:layout_constraintBottom_toTopOf="@id/nota_videojuego"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/nota_videojuego"
+                        android:layout_width="180dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/nota_0"
+                        app:layout_constraintStart_toEndOf="@id/imagen_videojuego"
+                        app:layout_constraintBottom_toTopOf="@id/annoSalida_videojuego"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/annoSalida_videojuego"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Año De Salida"
+                        android:textColor="@color/Blanco"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@id/imagen_videojuego"
+                        app:layout_constraintBottom_toTopOf="@id/bt_delete"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    app:layout_constraintStart_toEndOf="@+id/imagen_videojuego"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/bt_edit"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:padding="5dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/lapiz_logo"
+                        android:background="@drawable/borde_negro"
+                        app:layout_constraintStart_toEndOf="@id/imagen_videojuego"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/bt_delete"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:padding="5dp"
+                        android:src="@drawable/papelera_logo"
+                        android:background="@drawable/borde_negro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/bt_edit"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintHorizontal_bias="0.1"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout >
 
-</androidx.cardview.widget.CardView >
+</androidx.cardview.widget.CardView>

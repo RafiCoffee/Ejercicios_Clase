@@ -1,6 +1,7 @@
 package com.example.ejercicios_clase
 
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +11,7 @@ import com.example.ejercicios_clase.databinding.MainActivityBinding
 class MainActivity: AppCompatActivity() {
     private lateinit var control: Controller
     lateinit var mainBinding: MainActivityBinding
-    //lateinit var recyclerView: RecyclerView
+    lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = MainActivityBinding.inflate(layoutInflater)
@@ -22,11 +23,16 @@ class MainActivity: AppCompatActivity() {
         initRecyclerView()
         control = Controller(this)
         control.setAdapter()
-        control.loggOut()
+
+        recyclerView = findViewById(R.id.my_recycler_view)
+        control.setRecyclerView(recyclerView)
+
+        val addButton = findViewById<ImageButton>(R.id.btn_add)
+        control.setAddButton(addButton)
     }
 
     private fun initRecyclerView() {
-        var myRecyclerView = findViewById<RecyclerView>(R.id.my_recycler_view)
-        myRecyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView = findViewById(R.id.my_recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 }
