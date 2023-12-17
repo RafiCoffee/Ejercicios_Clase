@@ -50,4 +50,8 @@
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="registrarte">Registrar Usuario</string>
     <string name="confirmar_contrasenna">Confirmar Contraseña</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="tipoUsuario">Tipo De Usuario</string>
+    <string name="aceptar_condiciones">Aceptar Las Condiciones</string>
 </resources>

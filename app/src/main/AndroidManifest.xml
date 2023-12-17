@@ -21,15 +21,31 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".InicioSesionActivity"
 
             android:exported="true"
-            android:label="Pantalla"
+            android:label="Videojuegos"
             android:theme="@style/Theme.Ejercicios_Clase">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RegistrarUsuarioActivity"
+
+            android:exported="true"
+            android:label="Registro De Usuario"
+            android:theme="@style/Theme.Ejercicios_Clase">
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+
+            android:exported="true"
+            android:label="Videojuegos"
+            android:theme="@style/Theme.Ejercicios_Clase">
         </activity>
 
     </application>
