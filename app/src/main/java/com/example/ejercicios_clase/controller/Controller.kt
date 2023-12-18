@@ -69,7 +69,7 @@ class Controller(val contexto: Context) {
                 if(!isCanceled){
                     val videojuegoCreado = Videojuego(newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), newVideojuego[3].replace('-', '/'), newVideojuego[4].toInt())
                     listVideojuegos.add(videojuegoCreado)
-                    Toast.makeText(contexto, videojuegoCreado.titulo + "creado", Toast.LENGTH_LONG).show()
+                    Toast.makeText(contexto, videojuegoCreado.titulo + " creado", Toast.LENGTH_LONG).show()
 
                     val newPos = (listVideojuegos.size-1)
                     adapterVideojuegos.notifyItemInserted(newPos)
@@ -213,7 +213,7 @@ class Controller(val contexto: Context) {
             val radioBtSeleccionado = listaRadioBt.firstOrNull{ it.isChecked }
             newVideojuego[0] = titulo.text.toString()
             newVideojuego[1] = genero.text.toString()
-            newVideojuego[2] = radioBtSeleccionado?.text.toString()
+            newVideojuego[2] = radioBtSeleccionado?.text?.toString() ?: "0"
             newVideojuego[3] = fechaSalidaBt.text.toString().replace('/', '-')
             val selectedImages = spinner.selectedItem.toString()
             var image = 0
@@ -232,7 +232,7 @@ class Controller(val contexto: Context) {
 
             newVideojuego[4] = image.toString()
 
-            if(newVideojuego[0].isNotEmpty() && newVideojuego[1].isNotEmpty() && newVideojuego[2].isNotEmpty() && newVideojuego[3].isNotEmpty()){
+            if(newVideojuego[0].isNotEmpty() && newVideojuego[1].isNotEmpty() && newVideojuego[3].isNotEmpty()){
                 callback.onDialogResult(newVideojuego, false)
             }else{
                 Toast.makeText(contexto, "Error al modificar, debes rellenar todos los campos", Toast.LENGTH_SHORT).show()
@@ -312,7 +312,7 @@ class Controller(val contexto: Context) {
             val radioBtSeleccionado = listaRadioBt.firstOrNull{ it.isChecked }
             newVideojuego[0] = titulo.text.toString()
             newVideojuego[1] = genero.text.toString()
-            newVideojuego[2] = radioBtSeleccionado?.text.toString()
+            newVideojuego[2] = radioBtSeleccionado?.text?.toString() ?: "0"
             newVideojuego[3] = fechaSalidaBt.text.toString().replace('/', '-')
             val selectedImages = spinner.selectedItem.toString()
             var image = 0
@@ -331,7 +331,7 @@ class Controller(val contexto: Context) {
 
             newVideojuego[4] = image.toString()
 
-            if(newVideojuego[0].isNotEmpty() && newVideojuego[1].isNotEmpty() && newVideojuego[2].isNotEmpty() && newVideojuego[3].isNotEmpty()){
+            if(newVideojuego[0].isNotEmpty() && newVideojuego[1].isNotEmpty() && newVideojuego[3].isNotEmpty()){
                 callback.onDialogResult(newVideojuego, false)
             }else{
                 Toast.makeText(contexto, "Error al crear, debes rellenar todos los campos", Toast.LENGTH_SHORT).show()
@@ -360,7 +360,7 @@ class Controller(val contexto: Context) {
 
         builder.setPositiveButton("Aceptar") { _, _ ->
 
-            val mes = fechaSalida.month.toString().padStart(2, '0')
+            val mes = (fechaSalida.month + 1).toString().padStart(2, '0')
             val dia = fechaSalida.dayOfMonth.toString().padStart(2,'0')
             val fecha = "${fechaSalida.year}/${mes}/${dia}"
             fechaIntroducida = fecha
