@@ -11,7 +11,7 @@ import com.example.ejercicios_clase.databinding.MainActivityBinding
 class MainActivity: AppCompatActivity() {
     private lateinit var control: Controller
     lateinit var mainBinding: MainActivityBinding
-    lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = MainActivityBinding.inflate(layoutInflater)

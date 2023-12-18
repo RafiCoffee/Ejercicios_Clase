@@ -2,7 +2,6 @@ package com.example.ejercicios_clase.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.databinding.ItemLayoutBinding
 import com.example.ejercicios_clase.models.Videojuego
@@ -27,7 +26,7 @@ class ViewHolderVideojuego (view: View,
                 4 -> binding.notaVideojuego.setImageResource(R.drawable.nota_4)
                 5 -> binding.notaVideojuego.setImageResource(R.drawable.nota_5)
             }
-            binding.fechaSalidaVideojuego.text = videojuego.fechaSalida.toString()
+            binding.fechaSalidaVideojuego.text = videojuego.fechaSalida
             binding.imagenVideojuego.setImageResource(videojuego.image)
 
             }

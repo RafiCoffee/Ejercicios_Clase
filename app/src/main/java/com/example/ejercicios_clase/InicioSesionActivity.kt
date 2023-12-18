@@ -25,31 +25,7 @@ class InicioSesionActivity : AppCompatActivity(){
 
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    fun asociarElementos(){
+    private fun asociarElementos(){
         usuarioEdText = findViewById(R.id.usuarioEditText)
         contrasennaEdText = findViewById(R.id.contrasennaEditText)
         contrasennaEdText.transformationMethod = PasswordTransformationMethod()
@@ -58,7 +34,7 @@ class InicioSesionActivity : AppCompatActivity(){
         registrarUsuarioBt = findViewById(R.id.registrarUsuarioBt)
     }
 
-    fun cargarEventos(){
+    private fun cargarEventos(){
         inicioSesionBt.setOnClickListener {
             if(comprobarUsuarios()){
                 val intentMainActivity = Intent(this, MainActivity :: class.java)
@@ -81,23 +57,24 @@ class InicioSesionActivity : AppCompatActivity(){
         }
     }
 
-    fun comprobarUsuarios(): Boolean{
+    private fun comprobarUsuarios(): Boolean{
         if(usuarioEdText.text.toString().isEmpty() || contrasennaEdText.text.toString().isEmpty()){
-            errorText.text = "Existe algún campo vacío"
+            errorText.text = getString(R.string.existe_campo_vacio)
             return false
         }else{
-            if(!ListaUsuarios.obtenerUsuarios().size.equals(0)){
+            if(ListaUsuarios.obtenerUsuarios().size != 0){
                 for(i in 0 until ListaUsuarios.obtenerUsuarios().size){
-                    if (ListaUsuarios.obtenerUsuarios().get(i).nombreUsuario.equals(usuarioEdText.text.toString()) &&
-                        ListaUsuarios.obtenerUsuarios().get(i).claveUsuario.equals(contrasennaEdText.text.toString())){
+                    if (ListaUsuarios.obtenerUsuarios()[i].nombreUsuario == usuarioEdText.text.toString() &&
+                        ListaUsuarios.obtenerUsuarios()[i].claveUsuario == contrasennaEdText.text.toString()
+                    ){
 
-                        ListaUsuarios.obtenerUsuarios().get(i).usuarioIniciado = true
+                        ListaUsuarios.obtenerUsuarios()[i].usuarioIniciado = true
                         return true
                     }
                 }
             }
-            errorText.text = "Usuario o contraseña introducidos incorrectos"
-            return false;
+            errorText.text = getString(R.string.datos_introducidos_incorrectos)
+            return false
         }
     }
 }

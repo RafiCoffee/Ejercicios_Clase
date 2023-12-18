@@ -39,31 +39,7 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    fun asociarElementos(){
+    private fun asociarElementos(){
         volverBt = findViewById(R.id.volverBt)
         imagenUsuario = findViewById(R.id.imagenUsuario)
         usuarioEdText = findViewById(R.id.usuarioEditText)
@@ -78,7 +54,7 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
         registrarUsuarioBt = findViewById(R.id.registrarUsuarioBt)
     }
 
-    fun cargarEventos(){
+    private fun cargarEventos(){
         val intentIniciarSesionActivity = Intent(this, InicioSesionActivity :: class.java)
 
         registrarUsuarioBt.setOnClickListener {
@@ -91,7 +67,7 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
             }
         }
 
-        seleccionSexo.setOnCheckedChangeListener { group, checkedId ->
+        seleccionSexo.setOnCheckedChangeListener { _, checkedId ->
             val sexo = findViewById<RadioButton>(checkedId)
             esHombre = sexo.text.equals("Hombre")
 
@@ -111,28 +87,28 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
         }
     }
 
-    fun comprobarRegistro(): Boolean{
+    private fun comprobarRegistro(): Boolean{
         if(usuarioEdText.text.toString().isEmpty() || contrasennaEdText.text.toString().isEmpty() || confirmarContrasennaEdText.text.toString().isEmpty() || esHombre == null){
-            errorText.text = "Existe algún campo vacío"
+            errorText.text = getString(R.string.existe_campo_vacio)
             return false
-        }else if(!contrasennaEdText.text.toString().equals(confirmarContrasennaEdText.text.toString())){
-            errorText.text = "Las contraseñas no coinciden"
+        }else if(contrasennaEdText.text.toString() != confirmarContrasennaEdText.text.toString()){
+            errorText.text = getString(R.string.claves_no_coinciden)
             return false
         }else{
             if(!condiciones.isChecked){
-                errorText.text = "Debes aceptar las condiciones"
+                errorText.text = getString(R.string.debes_aceptar_condiciones)
                 return false
             }else{
-                if(tipoUsuario.selectedItem.toString().equals("Administrador") && !contrasennaEdText.text.equals("admin")){
-                    errorText.text = "Contraseña de administrador erronea"
-                    return false
+                return if(tipoUsuario.selectedItem.toString() == "Administrador" && !contrasennaEdText.text.equals("admin")){
+                    errorText.text = getString(R.string.clave_administrador_erronea)
+                    false
                 }else{
                     if(esHombre == true){
                         ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString(), contrasennaEdText.text.toString(), true, tipoUsuario.selectedItem.toString(), false))
                     }else{
                         ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString(), contrasennaEdText.text.toString(), false, tipoUsuario.selectedItem.toString(),false))
                     }
-                    return true
+                    true
                 }
             }
         }

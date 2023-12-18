@@ -8,8 +8,8 @@ import com.example.ejercicios_clase.models.Videojuego
 
 class AdapterVideojuego (
     private var listaVideojuegos: MutableList<Videojuego>,
-    var deleteOnClick: (Int) -> Unit,
-    var updateOnClick: (Int) -> Unit
+    private var deleteOnClick: (Int) -> Unit,
+    private var updateOnClick: (Int) -> Unit
     ) : RecyclerView.Adapter<ViewHolderVideojuego>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderVideojuego {
             val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,7 +20,7 @@ class AdapterVideojuego (
         }
 
         override fun onBindViewHolder(holder: ViewHolderVideojuego, position: Int) {
-            holder.renderize(listaVideojuegos.get(position))
+            holder.renderize(listaVideojuegos[position])
             holder.setOnClickListener(position)
         }
 
