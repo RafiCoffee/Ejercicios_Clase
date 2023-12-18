@@ -24,7 +24,6 @@
             android:name=".InicioSesionActivity"
 
             android:exported="true"
-            android:label="Videojuegos"
             android:theme="@style/Theme.Ejercicios_Clase">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +35,6 @@
             android:name=".RegistrarUsuarioActivity"
 
             android:exported="true"
-            android:label="Registro De Usuario"
             android:theme="@style/Theme.Ejercicios_Clase">
         </activity>
 
@@ -44,7 +42,7 @@
             android:name=".MainActivity"
 
             android:exported="true"
-            android:label="Videojuegos"
+            android:label="Lista Videojuegos"
             android:theme="@style/Theme.Ejercicios_Clase">
         </activity>
 

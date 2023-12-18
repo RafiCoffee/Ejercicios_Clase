@@ -6,9 +6,7 @@ import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.databinding.ItemLayoutBinding
 import com.example.ejercicios_clase.models.Videojuego
 
-class ViewHolderVideojuego (view: View,
-                            var deleteOnClick: (Int) -> Unit,
-                            var updateOnClick: (Int) -> Unit) : RecyclerView.ViewHolder (view) {
+class ViewHolderVideojuego (view: View, var deleteOnClick: (Int) -> Unit, var updateOnClick: (Int) -> Unit) : RecyclerView.ViewHolder (view) {
         private var binding: ItemLayoutBinding
 
         init {

@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicios_clase.MainActivity
 import com.example.ejercicios_clase.adapter.AdapterVideojuego
 import com.example.ejercicios_clase.dao.DaoVideojuegos
+import com.example.ejercicios_clase.dialoges.DialogCallback
+import com.example.ejercicios_clase.dialoges.DialogCallbackCalendario
 import com.example.ejercicios_clase.models.Videojuego
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -37,13 +39,6 @@ class Controller(val contexto: Context) {
     private fun initData() {
         listVideojuegos = DaoVideojuegos.mydao.getDataVideojuegos().toMutableList()
     }
-
-    /*fun loggOut() {
-        Toast.makeText(contexto, "Datos mostrados por pantalla", Toast.LENGTH_LONG).show()
-        listVideojuegos.forEach {
-            println(it)
-        }
-    }*/
 
     fun setAdapter() {
         val myActivity = contexto as MainActivity
@@ -69,10 +64,10 @@ class Controller(val contexto: Context) {
     }
 
     private fun crearVideojuego(){
-        mostrarCrearDialogo(object: DialogCallbackC{
+        mostrarCrearDialogo(object: DialogCallback {
             override fun onDialogResult(newVideojuego: Array<String>, isCanceled: Boolean){
                 if(!isCanceled){
-                    val videojuegoCreado = Videojuego(newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), LocalDate.parse(newVideojuego[3], DateTimeFormatter.ISO_LOCAL_DATE).toString().replace('-','/'), newVideojuego[4].toInt())
+                    val videojuegoCreado = Videojuego(newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), newVideojuego[3].replace('-', '/'), newVideojuego[4].toInt())
                     listVideojuegos.add(videojuegoCreado)
                     Toast.makeText(contexto, videojuegoCreado.titulo + "creado", Toast.LENGTH_LONG).show()
 
@@ -87,11 +82,11 @@ class Controller(val contexto: Context) {
 
     private fun actualizarVideojuego(pos: Int) {
         val videojuegoSeleccionado = listVideojuegos[pos]
-        mostrarActualizarDialogo(videojuegoSeleccionado, object: DialogCallbackC{
+        mostrarActualizarDialogo(videojuegoSeleccionado, object: DialogCallback{
             override fun onDialogResult(newVideojuego: Array<String>, isCanceled: Boolean){
                 if(!isCanceled){
                     listVideojuegos.removeAt(pos)
-                    val videojuegoActualizado = Videojuego(newVideojuego[0], newVideojuego[1], 4, newVideojuego[3].replace('-', '/'), newVideojuego[4].toInt())
+                    val videojuegoActualizado = Videojuego(newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), newVideojuego[3].replace('-', '/'), newVideojuego[4].toInt())
                     listVideojuegos.add(pos, videojuegoActualizado)
                     Toast.makeText(contexto, listVideojuegos[pos].titulo + " actualizado", Toast.LENGTH_LONG).show()
                     adapterVideojuegos.notifyItemChanged(pos)
@@ -121,7 +116,7 @@ class Controller(val contexto: Context) {
     }
 
     private fun elegirFecha(){
-        mostrarCalendario(object: DialogCallbackD{
+        mostrarCalendario(object: DialogCallbackCalendario {
             override fun onDialogResult(fecha: String, isCanceled: Boolean) {
                 if(!isCanceled){
                     fechaSalidaBt.text = fecha
@@ -130,7 +125,7 @@ class Controller(val contexto: Context) {
         })
     }
     
-    private fun mostrarActualizarDialogo(videojuegoSeleccionado: Videojuego, callback: DialogCallbackC){
+    private fun mostrarActualizarDialogo(videojuegoSeleccionado: Videojuego, callback: DialogCallback){
         val newVideojuego = Array(5){""}
 
         val builder = AlertDialog.Builder(contexto)
@@ -252,7 +247,7 @@ class Controller(val contexto: Context) {
         builder.show()
     }
 
-    private fun mostrarCrearDialogo(callback: DialogCallbackC){
+    private fun mostrarCrearDialogo(callback: DialogCallback){
         val newVideojuego = Array(5){""}
 
         val builder = AlertDialog.Builder(contexto)
@@ -351,7 +346,7 @@ class Controller(val contexto: Context) {
         builder.show()
     }
 
-    private fun mostrarCalendario(callback: DialogCallbackD) {
+    private fun mostrarCalendario(callback: DialogCallbackCalendario) {
         var fechaIntroducida = ""
         val builder = AlertDialog.Builder(contexto)
         builder.setTitle("Seleccionar Fecha ")
@@ -380,13 +375,5 @@ class Controller(val contexto: Context) {
         }
 
         builder.show()
-    }
-
-    interface DialogCallbackC{
-        fun onDialogResult(newVideojuego: Array<String>, isCanceled: Boolean)
-    }
-
-    interface DialogCallbackD{
-        fun onDialogResult(fecha: String, isCanceled: Boolean)
     }
 }
