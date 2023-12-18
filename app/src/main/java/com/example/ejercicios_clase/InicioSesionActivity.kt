@@ -73,7 +73,6 @@ class InicioSesionActivity : AppCompatActivity(){
 
         registrarUsuarioBt.setOnClickListener {
             val intentRegistrarActivity = Intent(this, RegistrarUsuarioActivity :: class.java)
-
             try{
                 startActivity(intentRegistrarActivity)
             }catch (e : ActivityNotFoundException){

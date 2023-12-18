@@ -54,4 +54,11 @@
     <string name="mujer">Mujer</string>
     <string name="tipoUsuario">Tipo De Usuario</string>
     <string name="aceptar_condiciones">Aceptar Las Condiciones</string>
+
+    <string-array name="opciones_spinner">
+        <item>Administrador</item>
+        <item>Profesor</item>
+        <item>Alumno</item>
+        <item>Beta-Tester</item>
+    </string-array>
 </resources>

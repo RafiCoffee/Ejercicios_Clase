@@ -27,7 +27,7 @@ class ViewHolderVideojuego (view: View,
                 4 -> binding.notaVideojuego.setImageResource(R.drawable.nota_4)
                 5 -> binding.notaVideojuego.setImageResource(R.drawable.nota_5)
             }
-            binding.annoSalidaVideojuego.text = videojuego.annoSalida.toString()
+            binding.fechaSalidaVideojuego.text = videojuego.fechaSalida.toString()
             binding.imagenVideojuego.setImageResource(videojuego.image)
 
             }

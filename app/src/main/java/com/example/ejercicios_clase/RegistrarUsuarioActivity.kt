@@ -96,9 +96,9 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
             esHombre = sexo.text.equals("Hombre")
 
             if(esHombre == true){
-                //imagenUsuario.setImageResource(R.drawable.usuario_hombre_logo)
+                imagenUsuario.setImageResource(R.drawable.usuario_hombre_logo)
             }else if (esHombre == false){
-                //imagenUsuario.setImageResource(R.drawable.usuario_mujer_logo)
+                imagenUsuario.setImageResource(R.drawable.usuario_mujer_logo)
             }
         }
 

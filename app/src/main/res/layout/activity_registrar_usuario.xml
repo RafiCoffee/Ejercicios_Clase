@@ -29,7 +29,7 @@
             android:id="@+id/imagenUsuario"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/usuario_logo"/>
+            android:src="@drawable/usuario_hombre_logo"/>
 
         <LinearLayout
             android:layout_width="match_parent"
