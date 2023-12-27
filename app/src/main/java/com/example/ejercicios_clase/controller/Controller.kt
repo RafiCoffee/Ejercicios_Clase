@@ -3,6 +3,8 @@ package com.example.ejercicios_clase.controller
 import com.example.ejercicios_clase.R
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Parcel
+import android.os.Parcelable
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.DatePicker
@@ -16,16 +18,18 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.setPadding
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ejercicios_clase.MainActivity
 import com.example.ejercicios_clase.adapter.AdapterVideojuego
 import com.example.ejercicios_clase.dao.DaoVideojuegos
+import com.example.ejercicios_clase.databinding.VideojuegosActivityBinding
 import com.example.ejercicios_clase.dialoges.DialogCallback
 import com.example.ejercicios_clase.dialoges.DialogCallbackCalendario
 import com.example.ejercicios_clase.models.Videojuego
+import com.example.ejercicios_clase.object_models.Estadisticas
+import com.example.ejercicios_clase.object_models.Repositorio
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class Controller(val contexto: Context) {
+class Controller(val contexto: Context, val videojuegosBinding: VideojuegosActivityBinding){
     private lateinit var listVideojuegos: MutableList<Videojuego>
     private lateinit var adapterVideojuegos: AdapterVideojuego
     private lateinit var recyclerView: RecyclerView
@@ -40,8 +44,11 @@ class Controller(val contexto: Context) {
         listVideojuegos = DaoVideojuegos.mydao.getDataVideojuegos().toMutableList()
     }
 
+    fun getListVideojuegos(): List<Videojuego> {
+        return listVideojuegos
+    }
+
     fun setAdapter() {
-        val myActivity = contexto as MainActivity
         adapterVideojuegos = AdapterVideojuego(
             listVideojuegos,
             { pos ->
@@ -51,7 +58,7 @@ class Controller(val contexto: Context) {
                 actualizarVideojuego(pos)
             }
         )
-        myActivity.mainBinding.myRecyclerView.adapter = adapterVideojuegos
+        videojuegosBinding.myRecyclerView.adapter = adapterVideojuegos
     }
 
     fun setRecyclerView(recyclerView: RecyclerView){
@@ -70,6 +77,9 @@ class Controller(val contexto: Context) {
                     val videojuegoCreado = Videojuego(newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), newVideojuego[3].replace('-', '/'), newVideojuego[4].toInt())
                     listVideojuegos.add(videojuegoCreado)
                     Toast.makeText(contexto, videojuegoCreado.titulo + " creado", Toast.LENGTH_LONG).show()
+                    Repositorio.listVideojuegos.add(videojuegoCreado)
+                    Estadisticas.totalJuegos = Repositorio.listVideojuegos.size
+                    Estadisticas.totalJuegosAgregados++
 
                     val newPos = (listVideojuegos.size-1)
                     adapterVideojuegos.notifyItemInserted(newPos)
@@ -89,6 +99,9 @@ class Controller(val contexto: Context) {
                     val videojuegoActualizado = Videojuego(newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), newVideojuego[3].replace('-', '/'), newVideojuego[4].toInt())
                     listVideojuegos.add(pos, videojuegoActualizado)
                     Toast.makeText(contexto, listVideojuegos[pos].titulo + " actualizado", Toast.LENGTH_LONG).show()
+                    Repositorio.listVideojuegos.set(pos, videojuegoActualizado)
+                    Estadisticas.totalJuegosEditados++
+
                     adapterVideojuegos.notifyItemChanged(pos)
                 }
             }
@@ -102,6 +115,9 @@ class Controller(val contexto: Context) {
 
         builder.setPositiveButton("Si") { _, _ ->
             Toast.makeText(contexto, listVideojuegos[pos].titulo + " eliminado", Toast.LENGTH_LONG).show()
+            Repositorio.listVideojuegos.removeAt(pos)
+            Estadisticas.totalJuegos = Repositorio.listVideojuegos.size
+            Estadisticas.totalJuegosEliminados++
             listVideojuegos.removeAt(pos)
 
             adapterVideojuegos.notifyItemRemoved(pos)

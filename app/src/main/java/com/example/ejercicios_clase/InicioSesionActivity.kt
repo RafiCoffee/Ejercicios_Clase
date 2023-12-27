@@ -64,8 +64,8 @@ class InicioSesionActivity : AppCompatActivity(){
         }else{
             if(ListaUsuarios.obtenerUsuarios().size != 0){
                 for(i in 0 until ListaUsuarios.obtenerUsuarios().size){
-                    if (ListaUsuarios.obtenerUsuarios()[i].nombreUsuario == usuarioEdText.text.toString() &&
-                        ListaUsuarios.obtenerUsuarios()[i].claveUsuario == contrasennaEdText.text.toString()
+                    if (ListaUsuarios.obtenerUsuarios()[i].nombreUsuario == usuarioEdText.text.toString().trim() &&
+                        ListaUsuarios.obtenerUsuarios()[i].claveUsuario == contrasennaEdText.text.toString().trim()
                     ){
 
                         ListaUsuarios.obtenerUsuarios()[i].usuarioIniciado = true

@@ -42,7 +42,6 @@
             android:name=".MainActivity"
 
             android:exported="true"
-            android:label="Lista Videojuegos"
             android:theme="@style/Theme.Ejercicios_Clase">
         </activity>
 

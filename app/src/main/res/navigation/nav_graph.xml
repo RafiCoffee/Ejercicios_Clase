@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listaVideojuegos">
+
+    <fragment
+        android:id="@+id/listaVideojuegos"
+        android:name="com.example.ejercicios_clase.fragmentos.VideojuegosFragment"
+        android:label="Lista Videojuegos"
+        tools:layout="@layout/videojuegos_activity">
+
+        <argument
+            android:name="nombreFragmento"
+            app:argType="string"/>
+
+        <argument
+            android:name="stats"
+            app:argType="integer[]"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/estadisticas"
+        android:name="com.example.ejercicios_clase.fragmentos.EstadisticasFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_estadisticas">
+
+        <argument
+            android:name="nombreFragmento"
+            app:argType="string"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/perfil"
+        android:name="com.example.ejercicios_clase.fragmentos.PerfilFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_perfil">
+
+        <argument
+            android:name="nombreFragmento"
+            app:argType="string"/>
+
+    </fragment>
+
+</navigation>

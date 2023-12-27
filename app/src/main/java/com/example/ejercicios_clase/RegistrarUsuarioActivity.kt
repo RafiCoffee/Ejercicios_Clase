@@ -91,7 +91,7 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
         if(usuarioEdText.text.toString().isEmpty() || contrasennaEdText.text.toString().isEmpty() || confirmarContrasennaEdText.text.toString().isEmpty() || esHombre == null){
             errorText.text = getString(R.string.existe_campo_vacio)
             return false
-        }else if(contrasennaEdText.text.toString() != confirmarContrasennaEdText.text.toString()){
+        }else if(contrasennaEdText.text.toString().trim() != confirmarContrasennaEdText.text.toString().trim()){
             errorText.text = getString(R.string.claves_no_coinciden)
             return false
         }else{
@@ -104,9 +104,10 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
                     false
                 }else{
                     if(esHombre == true){
-                        ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString(), contrasennaEdText.text.toString(), true, tipoUsuario.selectedItem.toString(), false))
+
+                        ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString().trim(), contrasennaEdText.text.toString().trim(), true, tipoUsuario.selectedItem.toString(), false))
                     }else{
-                        ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString(), contrasennaEdText.text.toString(), false, tipoUsuario.selectedItem.toString(),false))
+                        ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString().trim(), contrasennaEdText.text.toString().trim(), false, tipoUsuario.selectedItem.toString(),false))
                     }
                     true
                 }
