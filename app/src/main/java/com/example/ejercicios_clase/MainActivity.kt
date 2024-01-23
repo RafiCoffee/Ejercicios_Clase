@@ -1,9 +1,16 @@
 package com.example.ejercicios_clase
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,13 +20,31 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.ejercicios_clase.object_models.Estadisticas
 import com.example.ejercicios_clase.object_models.Repositorio
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity: AppCompatActivity() {
     private lateinit var navController: NavController
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
+
+    private lateinit var cerrarSesionBt: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         iniciarNav()
+        iniciarBarraSuperiorYLateral()
+
+        cerrarSesionBt = drawerLayout.findViewById(R.id.cerrarSesionBt)
+
+        cerrarSesionBt.setOnClickListener {
+            val intentIniciarSesionActivity = Intent(this, InicioSesionActivity :: class.java)
+
+            try{
+                startActivity(intentIniciarSesionActivity)
+            }catch (e : ActivityNotFoundException){
+                Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun iniciarNav(){
@@ -30,10 +55,7 @@ class MainActivity: AppCompatActivity() {
         navHostFragment.let {
             // El fragmento no es nulo, realiza tus operaciones aquí
             navController = it.navController
-            val appBarConfiguration = AppBarConfiguration(navController.graph)
 
-            // Configura la barra de acción con el controlador de navegación
-            setupActionBarWithNavController(navController, appBarConfiguration)
             bottomNav.setupWithNavController(navController)
         } ?: run {}
 
@@ -58,6 +80,46 @@ class MainActivity: AppCompatActivity() {
                 navController.navigate(menuItem.itemId)
                 true
             }
+        }
+    }
+
+    private fun iniciarBarraSuperiorYLateral(){
+        drawerLayout = findViewById(R.id.drawerLayout)
+        navView = findViewById(R.id.barraLateralOpciones)
+
+        val toolbar = findViewById<Toolbar>(R.id.barraSuperior)
+        setSupportActionBar(toolbar)
+
+        // Configurar el icono de la barra de acción para abrir el menú lateral
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        // Configurar la acción cuando se selecciona un elemento del menú
+        navView.setNavigationItemSelectedListener { opcion ->
+            // Acciones según el elemento seleccionado
+            // Por ejemplo, puedes cambiar de fragmento o actividad aquí
+
+            /*when (opcion.itemId){
+                R.id.menu_option1 -> {
+                    val intentPerfilActivity = Intent(this, PerfilActivity::class.java)
+                    try {
+                        startActivity(intentPerfilActivity)
+                    }catch (e : ActivityNotFoundException){
+                        Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }*/
+
+            // Cerrar el menú lateral
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
         }
     }
 

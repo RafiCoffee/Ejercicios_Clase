@@ -44,10 +44,6 @@ class Controller(val contexto: Context, val videojuegosBinding: VideojuegosActiv
         listVideojuegos = DaoVideojuegos.mydao.getDataVideojuegos().toMutableList()
     }
 
-    fun getListVideojuegos(): List<Videojuego> {
-        return listVideojuegos
-    }
-
     fun setAdapter() {
         adapterVideojuegos = AdapterVideojuego(
             listVideojuegos,
