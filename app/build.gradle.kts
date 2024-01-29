@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id ("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -49,6 +51,7 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/gradle/incremental.annotation.processors"
         }
     }
 }
@@ -60,6 +63,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment:2.7.6")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.6")
+    implementation ("com.google.dagger:hilt-android:2.44" )
+    implementation ("com.google.dagger:hilt-compiler:2.44")
 
 
 
