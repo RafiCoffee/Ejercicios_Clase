@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/NegroFondo"
-    tools:context=".RegistrarUsuarioActivity">
+    tools:context=".data.ui.views.RegistrarUsuarioActivity">
 
     <ImageButton
         android:id="@+id/volverBt"
@@ -49,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/unigeo64_light_trial"
                     android:text="@string/usuario"
                     android:textAlignment="textEnd"
                     android:textColor="@color/Blanco"
@@ -60,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/Blanco"
+                    android:fontFamily="@font/unigeo64_light_trial"
                     android:hint="@string/usuario"
                     android:paddingStart="5dp" />
 
@@ -77,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/unigeo64_light_trial"
                     android:text="@string/contrasenna"
                     android:textAlignment="textEnd"
                     android:textColor="@color/Blanco"
@@ -88,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/Blanco"
+                    android:fontFamily="@font/unigeo64_light_trial"
                     android:hint="@string/contrasenna"
                     android:inputType="textPassword"
                     android:paddingStart="5dp" />
@@ -106,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/unigeo64_light_trial"
                     android:text="@string/confirmar_contrasenna"
                     android:textAlignment="textEnd"
                     android:textColor="@color/Blanco"
@@ -117,6 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/Blanco"
+                    android:fontFamily="@font/unigeo64_light_trial"
                     android:hint="@string/contrasenna"
                     android:inputType="textPassword"
                     android:paddingStart="5dp" />
@@ -145,6 +151,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:buttonTint="@color/Blanco"
+                            android:fontFamily="@font/unigeo64_light_trial"
                             android:text="@string/hombre"
                             android:textColor="@color/Blanco"
                             android:textSize="20sp"/>
@@ -154,6 +161,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:buttonTint="@color/Blanco"
+                            android:fontFamily="@font/unigeo64_light_trial"
                             android:text="@string/mujer"
                             android:textColor="@color/Blanco"
                             android:textSize="20sp" />
@@ -174,9 +182,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/unigeo64_light_trial"
                         android:text="@string/tipoUsuario"
                         android:textColor="@color/Blanco"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textAlignment="center"/>
 
                     <Spinner
@@ -184,6 +193,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/Blanco"
+                        android:fontFamily="@font/unigeo64_light_trial"
                         android:prompt="@string/tipoUsuario"
                         android:entries="@array/opciones_spinner"/>
 
@@ -197,6 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:buttonTint="@color/Blanco"
+                android:fontFamily="@font/unigeo64_light_trial"
                 android:text="@string/aceptar_condiciones"
                 android:textAlignment="center"
                 android:textColor="@color/Blanco"
@@ -206,6 +217,7 @@
                 android:id="@+id/errorText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/unigeo64_light_italic_trial"
                 android:textAlignment="center"
                 android:textColor="@color/RojoOscuro"
                 android:textSize="18sp"
@@ -226,6 +238,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/borde_redondo"
                     android:padding="10dp"
+                    android:fontFamily="@font/unigeo64_bold_trial"
                     android:text="@string/registrarte"
                     android:textColor="@color/Blanco"
                     android:textSize="20sp" />

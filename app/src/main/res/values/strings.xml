@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Aplicación Ruben</string>
+    <string name="app_name">Ejercicios_Clase</string>
     <string name="saludo">Saludar</string>
     <string name="noSaludo">No Saludar</string>
     <string name="saludoClase">Saludar clase</string>
@@ -13,7 +13,7 @@
     <string name="boton_alarma">Boton De Alarma</string>
     <string name="boton_ajustes">Boton De Ajustes</string>
     <string name="imagen_personaje">Imagen De Personaje</string>
-    <string name="Marca_Ruben">Rubén De Haro Sánchez</string>
+    <string name="Marca_Ruben">Rubin De Haro Sánchez</string>
     <string name="marcar_llamada">Marcar tu el número</string>
     <string name="llamar_directo">Llamar directamente</string>
     <string name="texto_llamada_default">Escribe un número para llamar</string>
@@ -50,20 +50,33 @@
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="registrarte">Registrar Usuario</string>
     <string name="confirmar_contrasenna">Confirmar Contraseña</string>
-    <string name="boton_chistes">Boton De Chistes</string>
-    <string name="boton_de_dados">Boton De Dados</string>
-    <string name="generar_chiste">Generar chiste</string>
     <string name="hombre">Hombre</string>
     <string name="mujer">Mujer</string>
-    <string name="aceptar_condiciones">Acepto las condiciones</string>
     <string name="tipoUsuario">Tipo De Usuario</string>
-    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="aceptar_condiciones">Aceptar Las Condiciones</string>
+    <string name="titulo">Título:\t</string>
+    <string name="genero">Género:\t</string>
+    <string name="nota">Nota:\t</string>
+    <string name="fecha_salida">Fecha De Salida:\t</string>
+    <string name="imagen">Imagen:\t</string>
+    <string name="portada">Portada</string>
+    <string name="boton_editar">Boton Editar</string>
+    <string name="boton_eliminar">Boton Eliminar</string>
+    <string name="existe_campo_vacio">Existe algún campo vacío</string>
+    <string name="datos_introducidos_incorrectos">Usuario o contraseña introducidos incorrectos</string>
+    <string name="claves_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="debes_aceptar_condiciones">Debes aceptar las condiciones</string>
+    <string name="clave_administrador_erronea">Contraseña de administrador erronea</string>
 
     <string-array name="opciones_spinner">
         <item>Administrador</item>
-        <item>Profesor</item>
+        <item>Docente</item>
         <item>Alumno</item>
         <item>Beta-Tester</item>
     </string-array>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="navigation_drawer_open">Abrir menú</string>
+    <string name="navigation_drawer_close">Cerrar menú</string>
 </resources>

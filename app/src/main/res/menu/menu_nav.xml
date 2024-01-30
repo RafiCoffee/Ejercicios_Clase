@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/listaVideojuegos"
+        android:title="Videojuegos"
+        android:icon="@drawable/videojuegos_logo"/>
+    <item
+        android:id="@+id/estadisticas"
+        android:title="Estadisticas"
+        android:icon="@drawable/estadisticas_logo"/>
+    <item
+        android:id="@+id/perfil"
+        android:title="Perfil"
+        android:icon="@drawable/avatar_logo"/>
+
+    <!-- Agrega más elementos según sea necesario -->
+</menu>
