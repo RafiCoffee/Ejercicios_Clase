@@ -48,11 +48,6 @@
             android:exported="true">
         </activity>
 
-        <activity android:name=".ChistesActivity"
-            android:exported="true"
-            android:label="Pantalla De Chistes"
-            android:theme="@style/Theme.Ejercicios_Clase"/>
-
     </application>
 
 </manifest>
