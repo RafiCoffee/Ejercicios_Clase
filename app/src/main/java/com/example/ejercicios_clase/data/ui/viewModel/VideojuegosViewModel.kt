@@ -28,7 +28,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
-@AndroidEntryPoint
 class VideojuegosViewModel @Inject constructor(val contexto: Context, val videojuegosBinding: VideojuegosActivityBinding
 ) : ViewModel(){
     private lateinit var listVideojuegos: MutableList<Videojuego>

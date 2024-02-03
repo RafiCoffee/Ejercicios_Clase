@@ -31,6 +31,11 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            lintOptions{
+                warning("deprecation")
+            }
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -65,6 +70,7 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.6")
     implementation ("com.google.dagger:hilt-android:2.44" )
     implementation ("com.google.dagger:hilt-compiler:2.44")
+    kapt("com.google.dagger:hilt-compiler:2.44")
 
 
 

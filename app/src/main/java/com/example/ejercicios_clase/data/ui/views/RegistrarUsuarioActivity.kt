@@ -18,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.ejercicios_clase.ListaUsuarios
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.models.Usuario
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegistrarUsuarioActivity: AppCompatActivity() {
     private lateinit var volverBt: ImageButton
     private lateinit var imagenUsuario: ImageView

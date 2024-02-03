@@ -11,7 +11,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ejercicios_clase.ListaUsuarios
 import com.example.ejercicios_clase.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class InicioSesionActivity : AppCompatActivity(){
     private lateinit var usuarioEdText: EditText
     private lateinit var contrasennaEdText: EditText

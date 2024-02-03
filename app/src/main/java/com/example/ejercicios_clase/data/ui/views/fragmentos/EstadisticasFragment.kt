@@ -8,7 +8,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ejercicios_clase.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EstadisticasFragment: Fragment() {
     private lateinit var view: View
     private lateinit var totalJuegos: TextView

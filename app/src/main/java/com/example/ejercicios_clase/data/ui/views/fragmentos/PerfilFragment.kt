@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ejercicios_clase.ListaUsuarios
 import com.example.ejercicios_clase.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PerfilFragment: Fragment() {
     private lateinit var view: View
     private lateinit var fotoPerfil: ImageView
