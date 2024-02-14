@@ -1,5 +1,6 @@
-package com.example.ejercicios_clase.fragmentos
+package com.example.ejercicios_clase.ui.views.fragmentos
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.ejercicios_clase.ListaUsuarios
 import com.example.ejercicios_clase.R
@@ -15,6 +17,8 @@ class PerfilFragment: Fragment() {
     private lateinit var view: View
     private lateinit var fotoPerfil: ImageView
     private lateinit var nombrePerfil: TextView
+
+    private lateinit var sPSesion : SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,18 +36,10 @@ class PerfilFragment: Fragment() {
             Toast.makeText(view.context, titleArgumentValue, Toast.LENGTH_LONG).show()
         }
 
+        sPSesion = requireActivity().getSharedPreferences("Sesion", AppCompatActivity.MODE_PRIVATE)
         asociarElementos()
 
-        for(i in 0 until ListaUsuarios.obtenerUsuarios().size){
-            if(ListaUsuarios.obtenerUsuarios().get(i).usuarioIniciado){
-                if(!ListaUsuarios.obtenerUsuarios().get(i).sexo){
-                    fotoPerfil.setImageResource(R.drawable.usuario_mujer_logo)
-                }else{
-                    fotoPerfil.setImageResource(R.drawable.usuario_hombre_logo)
-                }
-                nombrePerfil.text = ListaUsuarios.obtenerUsuarios().get(i).nombreUsuario
-            }
-        }
+        nombrePerfil.text = sPSesion.getString("Usuario", "Nulo")
     }
 
     private fun asociarElementos(){

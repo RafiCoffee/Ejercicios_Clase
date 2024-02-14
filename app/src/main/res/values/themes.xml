@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Ejercicios_Clase" parent="Theme.AppCompat.Light.DarkActionBar" />
+    <style name="Theme.Ejercicios_Clase" parent="Theme.AppCompat.DayNight.NoActionBar"/>
 
     <style name="MainApp" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#FF0000</item>

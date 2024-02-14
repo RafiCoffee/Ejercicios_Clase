@@ -1,4 +1,4 @@
-package com.example.ejercicios_clase
+package com.example.ejercicios_clase.ui.views
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -15,6 +15,8 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ejercicios_clase.ListaUsuarios
+import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.models.Usuario
 
 class RegistrarUsuarioActivity: AppCompatActivity() {
@@ -105,9 +107,25 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
                 }else{
                     if(esHombre == true){
 
-                        ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString().trim(), contrasennaEdText.text.toString().trim(), true, tipoUsuario.selectedItem.toString(), false))
+                        ListaUsuarios.annadirUsuario(
+                            Usuario(
+                                usuarioEdText.text.toString().trim(),
+                                contrasennaEdText.text.toString().trim(),
+                                true,
+                                tipoUsuario.selectedItem.toString(),
+                                false
+                            )
+                        )
                     }else{
-                        ListaUsuarios.annadirUsuario(Usuario(usuarioEdText.text.toString().trim(), contrasennaEdText.text.toString().trim(), false, tipoUsuario.selectedItem.toString(),false))
+                        ListaUsuarios.annadirUsuario(
+                            Usuario(
+                                usuarioEdText.text.toString().trim(),
+                                contrasennaEdText.text.toString().trim(),
+                                false,
+                                tipoUsuario.selectedItem.toString(),
+                                false
+                            )
+                        )
                     }
                     true
                 }

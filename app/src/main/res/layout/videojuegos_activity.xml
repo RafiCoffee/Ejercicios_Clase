@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/NegroFondo"
-    tools:context=".fragmentos.VideojuegosFragment">
+    tools:context=".ui.views.fragmentos.VideojuegosFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
@@ -22,4 +22,11 @@
         android:src="@drawable/annadir_logo"
         android:contentDescription="@string/portada"
         android:scaleType="centerInside"/>
+
+    <ProgressBar
+        android:id="@+id/barraCarga"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/NegroFondo"/>
+
 </FrameLayout>

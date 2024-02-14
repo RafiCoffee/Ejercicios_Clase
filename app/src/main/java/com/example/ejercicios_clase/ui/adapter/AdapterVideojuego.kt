@@ -1,10 +1,11 @@
-package com.example.ejercicios_clase.adapter
+package com.example.ejercicios_clase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.models.Videojuego
+import com.example.ejercicios_clase.data.models.Repositorio
+import com.example.ejercicios_clase.data.models.Videojuego
 
 class AdapterVideojuego (
     private var listaVideojuegos: MutableList<Videojuego>,

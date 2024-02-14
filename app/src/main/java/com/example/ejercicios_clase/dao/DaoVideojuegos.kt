@@ -1,8 +1,8 @@
 package com.example.ejercicios_clase.dao
 
 import com.example.ejercicios_clase.interfaces.InterfaceDao
-import com.example.ejercicios_clase.models.Videojuego
-import com.example.ejercicios_clase.object_models.Repositorio
+import com.example.ejercicios_clase.data.models.Videojuego
+import com.example.ejercicios_clase.data.dataSource.Videojuegos
 
 class DaoVideojuegos private constructor() : InterfaceDao {
     companion object {
@@ -11,5 +11,5 @@ class DaoVideojuegos private constructor() : InterfaceDao {
         }
     }
 
-    override fun getDataVideojuegos(): List<Videojuego> = Repositorio.listVideojuegos
+    override fun getDataVideojuegos(): List<Videojuego> = Videojuegos.videojuegos
 }

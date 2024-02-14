@@ -1,4 +1,4 @@
-package com.example.ejercicios_clase.fragmentos
+package com.example.ejercicios_clase.ui.views.fragmentos
 
 import android.os.Bundle
 import android.view.LayoutInflater

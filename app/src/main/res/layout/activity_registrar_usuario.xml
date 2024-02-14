@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/NegroFondo"
-    tools:context=".RegistrarUsuarioActivity">
+    tools:context=".ui.views.RegistrarUsuarioActivity">
 
     <ImageButton
         android:id="@+id/volverBt"
@@ -61,8 +61,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/Blanco"
+                    android:textColor="@color/Negro"
                     android:fontFamily="@font/unigeo64_light_trial"
                     android:hint="@string/usuario"
+                    android:textColorHint="@color/Negro"
                     android:paddingStart="5dp" />
 
             </LinearLayout>
@@ -91,8 +93,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/Blanco"
+                    android:textColor="@color/Negro"
                     android:fontFamily="@font/unigeo64_light_trial"
                     android:hint="@string/contrasenna"
+                    android:textColorHint="@color/Negro"
                     android:inputType="textPassword"
                     android:paddingStart="5dp" />
 
@@ -122,8 +126,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/Blanco"
+                    android:textColor="@color/Negro"
                     android:fontFamily="@font/unigeo64_light_trial"
                     android:hint="@string/contrasenna"
+                    android:textColorHint="@color/Negro"
                     android:inputType="textPassword"
                     android:paddingStart="5dp" />
 
@@ -195,7 +201,8 @@
                         android:background="@color/Blanco"
                         android:fontFamily="@font/unigeo64_light_trial"
                         android:prompt="@string/tipoUsuario"
-                        android:entries="@array/opciones_spinner"/>
+                        android:entries="@array/opciones_spinner"
+                        style="@style/SpinnerTipoUsuario"/>
 
                 </LinearLayout>
 
