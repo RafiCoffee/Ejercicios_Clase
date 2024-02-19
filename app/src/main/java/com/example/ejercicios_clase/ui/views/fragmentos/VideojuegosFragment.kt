@@ -84,7 +84,6 @@ class VideojuegosFragment: Fragment(), SearchView.OnQueryTextListener {
     private fun registerLiveData(){
         videojuegosViewModel.videojuegosListLiveData.observe(
             viewLifecycleOwner) { listaVideojuegos ->
-            Log.i("VIDEOJUEGOS", "Tamaño --- " + listaVideojuegos.size)
             videojuegosViewModel.setAdapter(myRecyclerView)
             myRecyclerView.adapter?.notifyDataSetChanged()
         }

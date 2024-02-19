@@ -17,9 +17,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.ejercicios_clase.R
+import com.example.ejercicios_clase.application.PruebaHilt
 import com.example.ejercicios_clase.data.Estadisticas
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 class MainActivity: AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout

@@ -47,7 +47,6 @@ class RepositorioVideojuegoDao : RepositorioVideojuegoInterfaceDao {
         Repositorio.videojuegos = listaVideojuegosMutable
         Estadisticas.totalJuegos = Repositorio.videojuegos.size
         Estadisticas.totalJuegosEliminados++
-        Log.i("PRUEBA", "Lista actualizada --- " + Repositorio.videojuegos.size)
     }
 
     private fun actualizarLista(dataSource: List<Videojuego>): MutableList<Videojuego> {
