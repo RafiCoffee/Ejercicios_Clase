@@ -19,8 +19,9 @@ import com.example.ejercicios_clase.ui.dialogos.DialogoEditar
 import com.example.ejercicios_clase.ui.dialogos.DialogoEliminar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class VideojuegosViewModel : ViewModel(){
+class VideojuegosViewModel @Inject constructor() : ViewModel(){
     var videojuegosListLiveData : MutableLiveData<List<Videojuego>> = MutableLiveData()
     var progressBarLiveData = MutableLiveData<Boolean>()
     var busqueda = MutableLiveData<Int>()

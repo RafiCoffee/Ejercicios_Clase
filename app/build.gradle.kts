@@ -4,6 +4,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("dagger.hilt.android.plugin")
 }
 
 
@@ -65,9 +66,17 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-    implementation ("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-compiler:2.44")
 
+    implementation ("com.google.dagger:hilt-android:2.50")
+    kapt ("com.google.dagger:hilt-compiler:2.50")
+
+    // For instrumentation tests
+    androidTestImplementation  ("com.google.dagger:hilt-android-testing:2.50")
+    kaptAndroidTest ("com.google.dagger:hilt-compiler:2.50")
+
+    // For local unit tests
+    testImplementation ("com.google.dagger:hilt-android-testing:2.50")
+    kaptTest ("com.google.dagger:hilt-compiler:2.50")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")

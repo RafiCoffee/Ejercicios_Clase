@@ -1,6 +1,5 @@
 package com.example.ejercicios_clase.ui.views.fragmentos
 
-import android.app.AlertDialog
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.util.Log
@@ -8,37 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.LinearLayout
 import android.widget.ProgressBar
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.SearchView
-import android.widget.Spinner
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.data.models.Videojuego
 import com.example.ejercicios_clase.databinding.VideojuegosActivityBinding
-import com.example.ejercicios_clase.dialoges.DialogCallbackCalendario
 import com.example.ejercicios_clase.ui.modelView.VideojuegosViewModel
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class VideojuegosFragment: Fragment(), SearchView.OnQueryTextListener {
     lateinit var videojuegosBinding: VideojuegosActivityBinding
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myProgressBar: ProgressBar
+
     val videojuegosViewModel : VideojuegosViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

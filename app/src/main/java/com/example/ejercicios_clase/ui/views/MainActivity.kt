@@ -24,6 +24,7 @@ import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity: AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
@@ -31,6 +32,9 @@ class MainActivity: AppCompatActivity() {
     private lateinit var sPSesion: SharedPreferences
 
     private lateinit var cerrarSesionBt: Button
+
+    @Inject
+    lateinit var prueba : PruebaHilt
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -42,6 +46,8 @@ class MainActivity: AppCompatActivity() {
         iniciarNav()
         iniciarBarraSuperiorYLateral()
         cargarEventos()
+
+        prueba.prueba(this)
     }
 
     private fun iniciarNav(){
