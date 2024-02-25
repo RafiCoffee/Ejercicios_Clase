@@ -92,10 +92,10 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
+                    android:id="@+id/nombreUsuario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
-                    android:text="Ruben"
                     android:textSize="20sp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/fotoUsuario"/>

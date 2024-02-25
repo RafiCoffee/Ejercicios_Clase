@@ -58,25 +58,43 @@ android {
 }
 
 dependencies {
+    //Versiones
+    val glideVersion = "4.12.0"
+    val navigationVersion = "2.7.6"
+    val viewModelVersion = "2.7.0"
+    val hiltVersion = "2.50"
+    val roomVersion = "2.5.0"
 
-    implementation("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
-    implementation("androidx.navigation:navigation-fragment:2.7.6")
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    //Glide
+    implementation("com.github.bumptech.glide:glide:$glideVersion")
+    annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
 
-    implementation ("com.google.dagger:hilt-android:2.50")
-    kapt ("com.google.dagger:hilt-compiler:2.50")
 
-    // For instrumentation tests
-    androidTestImplementation  ("com.google.dagger:hilt-android-testing:2.50")
-    kaptAndroidTest ("com.google.dagger:hilt-compiler:2.50")
+    //Navigation
+    implementation("androidx.navigation:navigation-fragment:$navigationVersion")
+    implementation ("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation ("androidx.navigation:navigation-ui-ktx:$navigationVersion")
 
-    // For local unit tests
-    testImplementation ("com.google.dagger:hilt-android-testing:2.50")
-    kaptTest ("com.google.dagger:hilt-compiler:2.50")
+
+    //ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$viewModelVersion")
+
+
+    //Hilt
+    implementation ("com.google.dagger:hilt-android:$hiltVersion")
+    kapt ("com.google.dagger:hilt-compiler:$hiltVersion")
+    androidTestImplementation  ("com.google.dagger:hilt-android-testing:$hiltVersion")
+    kaptAndroidTest ("com.google.dagger:hilt-compiler:$hiltVersion")
+    testImplementation ("com.google.dagger:hilt-android-testing:$hiltVersion")
+    kaptTest ("com.google.dagger:hilt-compiler:$hiltVersion")
+
+
+    //Room
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")

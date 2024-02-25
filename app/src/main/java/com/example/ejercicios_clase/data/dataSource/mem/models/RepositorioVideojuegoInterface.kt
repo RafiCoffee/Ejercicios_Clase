@@ -1,6 +1,6 @@
-package com.example.ejercicios_clase.data.models
+package com.example.ejercicios_clase.data.dataSource.mem.models
 
-interface RepositorioVideojuegoInterfaceDao {
+interface RepositorioVideojuegoInterface {
     fun getVideojuegos(): List<Videojuego>
     fun getVideojuegosNota(nota: Int): List<Videojuego>
     fun agregarVideojuego(videojuegoNuevo: Videojuego)

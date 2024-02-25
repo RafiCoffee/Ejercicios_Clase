@@ -1,10 +1,10 @@
-package com.example.ejercicios_clase.data.models
+package com.example.ejercicios_clase.data.dataSource.mem.models
 
 import android.util.Log
 import com.example.ejercicios_clase.data.Estadisticas
-import com.example.ejercicios_clase.data.service.VideojuegoService
+import com.example.ejercicios_clase.data.dataSource.mem.service.VideojuegoService
 
-class RepositorioVideojuegoDao : RepositorioVideojuegoInterfaceDao {
+class RepositorioVideojuego : RepositorioVideojuegoInterface {
     private val service : VideojuegoService = VideojuegoService()
     override fun getVideojuegos(): List<Videojuego> {
         val dataSource = service.getVideojuegos()

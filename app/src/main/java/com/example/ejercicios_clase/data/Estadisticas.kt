@@ -1,6 +1,6 @@
 package com.example.ejercicios_clase.data
 
-import com.example.ejercicios_clase.data.dataSource.Videojuegos
+import com.example.ejercicios_clase.data.dataSource.mem.Videojuegos
 
 object Estadisticas {
     var totalJuegos: Int = Videojuegos.videojuegos.size

@@ -1,9 +1,7 @@
-package com.example.ejercicios_clase.data.service
+package com.example.ejercicios_clase.data.dataSource.mem.service
 
-import android.util.Log
-import com.example.ejercicios_clase.data.dataSource.Videojuegos
-import com.example.ejercicios_clase.data.models.Repositorio
-import com.example.ejercicios_clase.data.models.Videojuego
+import com.example.ejercicios_clase.data.dataSource.mem.models.Repositorio
+import com.example.ejercicios_clase.data.dataSource.mem.models.Videojuego
 
 class VideojuegoService : VideojuegoServiceInterface {
     override fun getVideojuegos(): List<Videojuego> {

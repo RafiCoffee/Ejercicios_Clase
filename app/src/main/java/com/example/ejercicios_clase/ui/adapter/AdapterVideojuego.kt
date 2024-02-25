@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.data.models.Repositorio
-import com.example.ejercicios_clase.data.models.Videojuego
+import com.example.ejercicios_clase.data.dataSource.mem.models.Repositorio
+import com.example.ejercicios_clase.data.dataSource.mem.models.Videojuego
 
 class AdapterVideojuego (
     private var listaVideojuegos: MutableList<Videojuego>,

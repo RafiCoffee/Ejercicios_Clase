@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,7 @@ class MainActivity: AppCompatActivity() {
     private lateinit var sPSesion: SharedPreferences
 
     private lateinit var cerrarSesionBt: Button
+    private lateinit var nombreUsuario: TextView
 
     @Inject
     lateinit var prueba : PruebaHilt
@@ -116,6 +118,8 @@ class MainActivity: AppCompatActivity() {
 
     fun asociarElementos(){
         cerrarSesionBt = findViewById(R.id.cerrarSesionBt)
+        nombreUsuario = findViewById(R.id.nombreUsuario)
+        nombreUsuario.text = sPSesion.getString("Usuario", "Invitado")
     }
 
     fun cargarEventos(){

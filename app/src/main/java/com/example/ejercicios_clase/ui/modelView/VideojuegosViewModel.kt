@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ejercicios_clase.data.models.Repositorio
-import com.example.ejercicios_clase.data.models.Videojuego
+import com.example.ejercicios_clase.data.dataSource.mem.models.Repositorio
+import com.example.ejercicios_clase.data.dataSource.mem.models.Videojuego
 import com.example.ejercicios_clase.domain.userCase.AgregarVideojuegoUserCase
 import com.example.ejercicios_clase.domain.userCase.EditarVideojuegoUserCase
 import com.example.ejercicios_clase.domain.userCase.EliminarVideojuegoUserCase
