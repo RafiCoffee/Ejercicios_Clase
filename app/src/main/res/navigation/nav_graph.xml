@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listaVideojuegos"
-        android:name="com.example.ejercicios_clase.fragmentos.VideojuegosFragment"
+        android:name="com.example.ejercicios_clase.ui.views.fragmentos.VideojuegosFragment"
         android:label="Lista Videojuegos"
         tools:layout="@layout/videojuegos_activity">
 
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/estadisticas"
-        android:name="com.example.ejercicios_clase.data.ui.views.fragmentos.EstadisticasFragment"
+        android:name="com.example.ejercicios_clase.ui.views.fragmentos.EstadisticasFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_estadisticas">
 
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/perfil"
-        android:name="com.example.ejercicios_clase.data.ui.views.fragmentos.PerfilFragment"
+        android:name="com.example.ejercicios_clase.ui.views.fragmentos.PerfilFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_perfil">
 

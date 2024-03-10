@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/fragmentos/EstadisticasFragment.kt
 package com.example.ejercicios_clase.data.ui.views.fragmentos
+========
+package com.example.ejercicios_clase.ui.views.fragmentos
+>>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/fragmentos/EstadisticasFragment.kt
 
 import android.os.Bundle
 import android.view.LayoutInflater

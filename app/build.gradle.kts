@@ -2,9 +2,11 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
-    id ("kotlin-kapt")
-    id ("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+    id("dagger.hilt.android.plugin")
 }
+
 
 android {
     namespace = "com.example.ejercicios_clase"
@@ -31,11 +33,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
-            lintOptions{
-                warning("deprecation")
-            }
-        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -56,23 +53,47 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
-            excludes += "META-INF/gradle/incremental.annotation.processors"
         }
     }
 }
 
 dependencies {
+    //Versiones
+    val glideVersion = "4.12.0"
+    val navigationVersion = "2.7.6"
+    val viewModelVersion = "2.7.0"
+    val hiltVersion = "2.50"
+    val roomVersion = "2.5.0"
 
-    implementation("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
-    implementation("androidx.navigation:navigation-fragment:2.7.6")
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.6")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.7.6")
-    implementation ("com.google.dagger:hilt-android:2.44" )
-    implementation ("com.google.dagger:hilt-compiler:2.44")
-    kapt("com.google.dagger:hilt-compiler:2.44")
+    //Glide
+    implementation("com.github.bumptech.glide:glide:$glideVersion")
+    annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
 
 
+    //Navigation
+    implementation("androidx.navigation:navigation-fragment:$navigationVersion")
+    implementation ("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation ("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+
+
+    //ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$viewModelVersion")
+
+
+    //Hilt
+    implementation ("com.google.dagger:hilt-android:$hiltVersion")
+    kapt ("com.google.dagger:hilt-compiler:$hiltVersion")
+    androidTestImplementation  ("com.google.dagger:hilt-android-testing:$hiltVersion")
+    kaptAndroidTest ("com.google.dagger:hilt-compiler:$hiltVersion")
+    testImplementation ("com.google.dagger:hilt-android-testing:$hiltVersion")
+    kaptTest ("com.google.dagger:hilt-compiler:$hiltVersion")
+
+
+    //Room
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -95,4 +116,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+kapt {
+    correctErrorTypes = true
 }

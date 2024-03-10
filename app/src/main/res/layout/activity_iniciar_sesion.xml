@@ -7,7 +7,7 @@
     android:background="@color/NegroFondo"
     android:gravity="center"
     android:paddingBottom="150dp"
-    tools:context=".data.ui.views.InicioSesionActivity">
+    tools:context=".ui.views.InicioSesionActivity">
 
     <ImageView
         android:layout_width="200dp"
@@ -44,8 +44,10 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@color/Blanco"
+                android:textColor="@color/Negro"
                 android:fontFamily="@font/unigeo64_light_trial"
                 android:hint="@string/usuario"
+                android:textColorHint="@color/Negro"
                 android:paddingStart="5dp"/>
 
         </LinearLayout>
@@ -74,8 +76,10 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@color/Blanco"
+                android:textColor="@color/Negro"
                 android:fontFamily="@font/unigeo64_light_trial"
                 android:hint="@string/contrasenna"
+                android:textColorHint="@color/Negro"
                 android:inputType="textPassword"
                 android:paddingStart="5dp"/>
 

@@ -1,9 +1,16 @@
+<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/RegistrarUsuarioActivity.kt
 package com.example.ejercicios_clase.data.ui.views
+========
+package com.example.ejercicios_clase.ui.views
+>>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/RegistrarUsuarioActivity.kt
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -15,10 +22,26 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/RegistrarUsuarioActivity.kt
 import com.example.ejercicios_clase.ListaUsuarios
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.models.Usuario
 import dagger.hilt.android.AndroidEntryPoint
+========
+import androidx.lifecycle.lifecycleScope
+import com.example.ejercicios_clase.ListaUsuarios
+import com.example.ejercicios_clase.R
+import com.example.ejercicios_clase.data.dataSource.dataBase.AppDataBase
+import com.example.ejercicios_clase.data.dataSource.dataBase.dao.UsuarioDao
+import com.example.ejercicios_clase.data.dataSource.dataBase.entities.UsuarioEntity
+import com.example.ejercicios_clase.models.Usuario
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import javax.inject.Inject
+>>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/RegistrarUsuarioActivity.kt
 
 @AndroidEntryPoint
 class RegistrarUsuarioActivity: AppCompatActivity() {
@@ -33,7 +56,11 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
     private lateinit var errorText: TextView
     private lateinit var registrarUsuarioBt: Button
 
-    private var esHombre: Boolean? = null
+    private var esHombre: Boolean = true
+    private var rolUsuario: Int = 0
+
+    @Inject
+    lateinit var userDao: UsuarioDao
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_usuario)
@@ -82,6 +109,18 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
             }
         }
 
+        tipoUsuario.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View?, position: Int, id: Long) {
+                // 'position' contiene el índice de la opción seleccionada
+                // Puedes usar 'position' según tus necesidades
+                rolUsuario = position
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>) {
+                // Acción a realizar cuando no hay nada seleccionado (opcional)
+            }
+        }
+
         volverBt.setOnClickListener {
             try{
                 startActivity(intentIniciarSesionActivity)
@@ -103,12 +142,23 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
                 errorText.text = getString(R.string.debes_aceptar_condiciones)
                 return false
             }else{
-                return if(tipoUsuario.selectedItem.toString() == "Administrador" && !contrasennaEdText.text.equals("admin")){
+                return if(rolUsuario == 0 && !contrasennaEdText.text.toString().equals("admin")){
+                    Toast.makeText(this, contrasennaEdText.text, Toast.LENGTH_LONG).show()
                     errorText.text = getString(R.string.clave_administrador_erronea)
                     false
                 }else{
-                    if(esHombre == true){
+                    lifecycleScope.launch {
+                        var users : List<UsuarioEntity>
+                        withContext(Dispatchers.IO){
+                            val nuevoUsuario = UsuarioEntity(
+                                0,
+                                usuarioEdText.text.toString().trim(),
+                                contrasennaEdText.text.toString().trim(),
+                                esHombre,
+                                rolUsuario
+                            )
 
+<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/RegistrarUsuarioActivity.kt
                         ListaUsuarios.annadirUsuario(
                             Usuario(
                                 usuarioEdText.text.toString().trim(),
@@ -128,7 +178,19 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
                                 false
                             )
                         )
+========
+                            // Insertar el usuario utilizando el UserDao
+                            userDao.insertUser(nuevoUsuario)
+                            users = userDao.getAllUsers()
+                        }
+
+
+                        runOnUiThread {
+                            Log.i("Usuarios", "$users")
+                        }
+>>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/RegistrarUsuarioActivity.kt
                     }
+
                     true
                 }
             }

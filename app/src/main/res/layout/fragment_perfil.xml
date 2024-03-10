@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/NegroFondo"
-    tools:context=".data.ui.views.fragmentos.PerfilFragment">
+    tools:context=".ui.views.fragmentos.PerfilFragment">
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,10 +14,23 @@
         android:orientation="vertical"
         android:layout_margin="20dp">
 
-        <ImageView
-            android:id="@+id/fotoPerfil"
-            android:layout_width="200dp"
-            android:layout_height="200dp"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fotoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            app:cardCornerRadius="150dp"
+            app:cardElevation="2dp">
+
+            <ImageView
+                android:id="@+id/fotoPerfil"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@drawable/foto_perfil"
+                android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/nombrePerfil"
