@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/fragmentos/PerfilFragment.kt
 package com.example.ejercicios_clase.data.ui.views.fragmentos
-========
-package com.example.ejercicios_clase.ui.views.fragmentos
->>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/fragmentos/PerfilFragment.kt
+
 
 import android.content.SharedPreferences
 import android.os.Bundle

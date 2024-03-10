@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/RegistrarUsuarioActivity.kt
 package com.example.ejercicios_clase.data.ui.views
-========
-package com.example.ejercicios_clase.ui.views
->>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/RegistrarUsuarioActivity.kt
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -22,26 +18,18 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/RegistrarUsuarioActivity.kt
 import com.example.ejercicios_clase.ListaUsuarios
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.models.Usuario
 import dagger.hilt.android.AndroidEntryPoint
-========
 import androidx.lifecycle.lifecycleScope
-import com.example.ejercicios_clase.ListaUsuarios
-import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.data.dataSource.dataBase.AppDataBase
 import com.example.ejercicios_clase.data.dataSource.dataBase.dao.UsuarioDao
 import com.example.ejercicios_clase.data.dataSource.dataBase.entities.UsuarioEntity
-import com.example.ejercicios_clase.models.Usuario
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.ejercicios_clase.ui.views.InicioSesionActivity
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
->>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/RegistrarUsuarioActivity.kt
 
 @AndroidEntryPoint
 class RegistrarUsuarioActivity: AppCompatActivity() {
@@ -158,37 +146,13 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
                                 rolUsuario
                             )
 
-<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/ui/views/RegistrarUsuarioActivity.kt
-                        ListaUsuarios.annadirUsuario(
-                            Usuario(
-                                usuarioEdText.text.toString().trim(),
-                                contrasennaEdText.text.toString().trim(),
-                                true,
-                                tipoUsuario.selectedItem.toString(),
-                                false
-                            )
-                        )
-                    }else{
-                        ListaUsuarios.annadirUsuario(
-                            Usuario(
-                                usuarioEdText.text.toString().trim(),
-                                contrasennaEdText.text.toString().trim(),
-                                false,
-                                tipoUsuario.selectedItem.toString(),
-                                false
-                            )
-                        )
-========
-                            // Insertar el usuario utilizando el UserDao
                             userDao.insertUser(nuevoUsuario)
                             users = userDao.getAllUsers()
                         }
 
-
                         runOnUiThread {
                             Log.i("Usuarios", "$users")
                         }
->>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/ui/views/RegistrarUsuarioActivity.kt
                     }
 
                     true

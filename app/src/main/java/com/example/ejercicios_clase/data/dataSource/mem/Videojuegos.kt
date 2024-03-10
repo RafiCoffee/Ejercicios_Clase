@@ -1,14 +1,7 @@
-<<<<<<<< HEAD:app/src/main/java/com/example/ejercicios_clase/data/object_models/Repositorio.kt
-package com.example.ejercicios_clase.data.object_models
-
-import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.data.models.Videojuego
-========
 package com.example.ejercicios_clase.data.dataSource.mem
 
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.dataSource.mem.models.Videojuego
->>>>>>>> origin/Hilt_Y_MvvM:app/src/main/java/com/example/ejercicios_clase/data/dataSource/mem/Videojuegos.kt
 
 object Videojuegos {
     var videojuegos : List<Videojuego> = listOf(
