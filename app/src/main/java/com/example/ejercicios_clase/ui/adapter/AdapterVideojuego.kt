@@ -1,6 +1,5 @@
 package com.example.ejercicios_clase.data.ui.adapter
 
-import ViewHolderVideojuego
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

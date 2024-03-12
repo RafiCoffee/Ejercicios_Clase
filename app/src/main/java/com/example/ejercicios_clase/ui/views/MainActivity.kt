@@ -18,7 +18,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.application.PruebaHilt
 import com.example.ejercicios_clase.data.Estadisticas
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -34,22 +33,18 @@ class MainActivity: AppCompatActivity() {
 
     private lateinit var cerrarSesionBt: Button
     private lateinit var nombreUsuario: TextView
-
-    @Inject
-    lateinit var prueba : PruebaHilt
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
         sPSesion = getSharedPreferences("Sesion", MODE_PRIVATE)
+        //Toast.makeText(this, sPSesion.getString("Token", ""), Toast.LENGTH_LONG).show()
         mantenerSesionIniciada()
         asociarElementos()
 
         iniciarNav()
         iniciarBarraSuperiorYLateral()
         cargarEventos()
-
-        prueba.prueba(this)
     }
 
     private fun iniciarNav(){
@@ -138,13 +133,13 @@ class MainActivity: AppCompatActivity() {
     fun mantenerSesionIniciada(){
         val sesionIniciada: SharedPreferences.Editor = sPSesion.edit()
         sesionIniciada.putBoolean("SesionIniciada", true)
-        sesionIniciada.commit()
+        sesionIniciada.apply()
     }
 
     fun cerrarSesion(){
         val sesionIniciada: SharedPreferences.Editor = sPSesion.edit()
         sesionIniciada.putBoolean("SesionIniciada", false)
-        sesionIniciada.commit()
+        sesionIniciada.apply()
     }
 
     override fun onSupportNavigateUp(): Boolean {

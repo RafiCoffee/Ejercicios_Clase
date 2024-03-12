@@ -13,7 +13,7 @@ import com.example.ejercicios_clase.domain.userCase.EditarVideojuegoUserCase
 import com.example.ejercicios_clase.domain.userCase.EliminarVideojuegoUserCase
 import com.example.ejercicios_clase.domain.userCase.GetVideojuegosNotaUserCase
 import com.example.ejercicios_clase.domain.userCase.GetVideojuegosUserCase
-import com.example.ejercicios_clase.ui.adapter.AdapterVideojuego
+import com.example.ejercicios_clase.data.ui.adapter.AdapterVideojuego
 import com.example.ejercicios_clase.ui.dialogos.DialogoAgregar
 import com.example.ejercicios_clase.ui.dialogos.DialogoEditar
 import com.example.ejercicios_clase.ui.dialogos.DialogoEliminar

@@ -32,23 +32,22 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/unigeo64_light_trial"
-                android:text="@string/usuario"
+                android:text="@string/email"
                 android:textColor="@color/Blanco"
                 android:textSize="25sp"
                 android:textAlignment="textEnd"
                 android:layout_marginEnd="20dp"/>
 
             <EditText
-                android:id="@+id/usuarioEditText"
+                android:id="@+id/emailEditText"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@color/Blanco"
                 android:textColor="@color/Negro"
                 android:fontFamily="@font/unigeo64_light_trial"
-                android:hint="@string/usuario"
-                android:textColorHint="@color/Negro"
-                android:paddingStart="5dp"/>
+                android:hint="@string/email"
+                android:textColorHint="@color/Negro"/>
 
         </LinearLayout>
 

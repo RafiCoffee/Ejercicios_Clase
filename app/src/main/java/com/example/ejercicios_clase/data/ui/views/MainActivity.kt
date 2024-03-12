@@ -16,7 +16,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.data.object_models.Estadisticas
+import com.example.ejercicios_clase.data.Estadisticas
+import com.example.ejercicios_clase.ui.views.InicioSesionActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint

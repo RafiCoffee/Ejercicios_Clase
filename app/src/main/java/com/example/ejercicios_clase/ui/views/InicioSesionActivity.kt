@@ -14,16 +14,20 @@ import androidx.lifecycle.lifecycleScope
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.dataSource.dataBase.dao.UsuarioDao
 import com.example.ejercicios_clase.data.dataSource.dataBase.entities.UsuarioEntity
+import com.example.ejercicios_clase.data.retrofit.ApiService
+import com.example.ejercicios_clase.data.retrofit.RetrofitModule
+import com.example.ejercicios_clase.data.retrofit.requests.RequestLoginUsuario
 import com.example.ejercicios_clase.data.ui.views.RegistrarUsuarioActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class InicioSesionActivity : AppCompatActivity(){
-    private lateinit var usuarioEdText: EditText
+    private lateinit var emailEdText: EditText
     private lateinit var contrasennaEdText: EditText
     private lateinit var errorText: TextView
     private lateinit var inicioSesionBt: Button
@@ -46,7 +50,7 @@ class InicioSesionActivity : AppCompatActivity(){
     }
 
     private fun asociarElementos(){
-        usuarioEdText = findViewById(R.id.usuarioEditText)
+        emailEdText = findViewById(R.id.emailEditText)
         contrasennaEdText = findViewById(R.id.contrasennaEditText)
         contrasennaEdText.transformationMethod = PasswordTransformationMethod()
         errorText = findViewById(R.id.errorText)
@@ -57,8 +61,10 @@ class InicioSesionActivity : AppCompatActivity(){
     private fun cargarEventos(){
         inicioSesionBt.setOnClickListener {
             lifecycleScope.launch {
-                if(comprobarUsuarios()){
-                    abrirApp()
+                val idUsuarioLogin = comprobarUsuarios()
+                if(idUsuarioLogin != -1){
+                    val loguedUsername = userDao.getUserById(idUsuarioLogin).username
+                    abrirApp(loguedUsername)
                 }
             }
         }
@@ -73,52 +79,54 @@ class InicioSesionActivity : AppCompatActivity(){
         }
     }
 
-    private suspend fun comprobarUsuarios(): Boolean {
-        var existeUsuario = false
-        if (usuarioEdText.text.toString().isEmpty() || contrasennaEdText.text.toString().isEmpty()) {
+    private suspend fun comprobarUsuarios(): Int {
+        val email = emailEdText.text.toString()
+        val password = contrasennaEdText.text.toString()
+
+        if (email.isEmpty() || password.isEmpty()) {
             errorText.text = getString(R.string.existe_campo_vacio)
+            return -1
         }
 
-        try {
-            val users: List<UsuarioEntity> = withContext(Dispatchers.IO) {
-                userDao.getAllUsers()
+        val response = withContext(Dispatchers.IO) {
+            RetrofitModule.apiService.auth(RequestLoginUsuario(email, password))
+        }
+
+        Toast.makeText(this@InicioSesionActivity, "" + response.message(), Toast.LENGTH_LONG).show()
+
+        if (response.isSuccessful && response.body()?.result.equals("ok")) {
+            withContext(Dispatchers.Main) {
+                guardarToken(response.body()!!.token)
             }
-
-            if (users.isNotEmpty()) {
-                for (i in 0 until users.size) {
-                    if (users[i].username == usuarioEdText.text.toString().trim() &&
-                        users[i].claveUsuario == contrasennaEdText.text.toString().trim()
-                    ) {
-                        existeUsuario = true
-                        break
-                    }
-                }
-
-                if (!existeUsuario) {
-                    errorText.text = getString(R.string.datos_introducidos_incorrectos)
-                }
-            } else {
+            return response.body()!!.idUser
+        } else {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@InicioSesionActivity, "" + response.body()?.result, Toast.LENGTH_LONG).show()
                 errorText.text = getString(R.string.datos_introducidos_incorrectos)
             }
-        } catch (e: Exception) {
-            errorText.text = "Error al acceder a la base de datos"
+            return -1
         }
+    }
 
-        return existeUsuario
+    fun guardarToken(token: String){
+        val tokenUsuario: SharedPreferences.Editor = sPSesion.edit()
+        tokenUsuario.putString("Token", token)
+        tokenUsuario.apply()
     }
 
     fun comprobarSesion(){
         val sesionIniciada = sPSesion.getBoolean("SesionIniciada", false)
         if (sesionIniciada){
-            abrirApp()
+            val ultimoUsernameLogueado = sPSesion.getString("Usuario", "Invitado").toString()
+            abrirApp(ultimoUsernameLogueado)
         }
     }
 
-    fun abrirApp(){
+    fun abrirApp(username: String){
         if(!sPSesion.getBoolean("SesionIniciada", false)){
-            val nombreUsuario : SharedPreferences.Editor = sPSesion.edit()
-            nombreUsuario.putString("Usuario", usuarioEdText.text.toString())
-            nombreUsuario.commit()
+            val usuario : SharedPreferences.Editor = sPSesion.edit()
+            usuario.putString("Usuario", username)
+            usuario.apply()
         }
 
         val intentMainActivity = Intent(this, MainActivity :: class.java)

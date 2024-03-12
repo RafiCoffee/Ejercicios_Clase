@@ -64,6 +64,7 @@ dependencies {
     val viewModelVersion = "2.7.0"
     val hiltVersion = "2.50"
     val roomVersion = "2.5.0"
+    val gsonVersion = "2.9.0"
 
     //Glide
     implementation("com.github.bumptech.glide:glide:$glideVersion")
@@ -94,6 +95,11 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
+
+
+    //GSON
+    implementation ("com.google.code.gson:gson:$gsonVersion")
+    implementation ("com.squareup.retrofit2:converter-gson:$gsonVersion")
 
 
     implementation("androidx.core:core-ktx:1.12.0")

@@ -1,8 +1,8 @@
 package com.example.ejercicios_clase.data.interfaces
 
-import com.example.ejercicios_clase.data.models.Videojuego
-import com.example.ejercicios_clase.data.object_models.Repositorio
+import com.example.ejercicios_clase.data.dataSource.mem.models.Repositorio
+import com.example.ejercicios_clase.data.dataSource.mem.models.Videojuego
 
 interface InterfaceDao {
-    fun getDataVideojuegos(): List<Videojuego> = Repositorio.listVideojuegos
+    fun getDataVideojuegos(): List<Videojuego> = Repositorio.videojuegos
 }

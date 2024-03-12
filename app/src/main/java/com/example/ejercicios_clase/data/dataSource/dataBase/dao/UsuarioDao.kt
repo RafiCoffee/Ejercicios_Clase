@@ -12,6 +12,8 @@ import com.example.ejercicios_clase.data.dataSource.dataBase.entities.UsuarioEnt
 interface UsuarioDao {
     @Query("SELECT * FROM users")
     fun getAllUsers(): List<UsuarioEntity>
+    @Query("SELECT * FROM users WHERE id = :idUser")
+    fun getUserById(idUser: Int): UsuarioEntity
     @Query("DELETE FROM users")
     fun eliminarTodosLosUsuarios()
     @Insert(onConflict = OnConflictStrategy.ABORT)

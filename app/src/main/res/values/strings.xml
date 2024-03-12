@@ -63,7 +63,7 @@
     <string name="boton_editar">Boton Editar</string>
     <string name="boton_eliminar">Boton Eliminar</string>
     <string name="existe_campo_vacio">Existe algún campo vacío</string>
-    <string name="datos_introducidos_incorrectos">Usuario o contraseña introducidos incorrectos</string>
+    <string name="datos_introducidos_incorrectos">Email o contraseña introducidos incorrectos</string>
     <string name="claves_no_coinciden">Las contraseñas no coinciden</string>
     <string name="debes_aceptar_condiciones">Debes aceptar las condiciones</string>
     <string name="clave_administrador_erronea">Contraseña de administrador erronea</string>
@@ -91,7 +91,7 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="cerrar_sesion">Cerrar Sesión</string>
-    <string name="navigation_drawer_open">Abrir menú</string>
-    <string name="navigation_drawer_close">Cerrar menú</string>
+    <string name="email">Email</string>
+    <string name="confirmar_email">Confirmar Email</string>
+    <string name="emails_no_coinciden">El email no coincide</string>
 </resources>
