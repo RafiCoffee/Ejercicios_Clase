@@ -12,11 +12,15 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.dataSource.mem.models.Videojuego
 import com.example.ejercicios_clase.data.dialoges.DialogCallbackCalendario
+import com.example.ejercicios_clase.data.retrofit.RetrofitModule
+import com.example.ejercicios_clase.data.retrofit.requests.RequestAddVideojuego
 import com.example.ejercicios_clase.ui.modelView.VideojuegosViewModel
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class DialogoAgregar(myRecyclerView: RecyclerView) {
@@ -30,7 +34,7 @@ class DialogoAgregar(myRecyclerView: RecyclerView) {
     private lateinit var listaNotasVideojuego : MutableList<RadioButton>
     private lateinit var fechaVideojuego : Button
     private lateinit var imagenVideojuego : Spinner
-    fun mostrarDialogoAgregarVideojuego(viewModel: VideojuegosViewModel){
+    fun mostrarDialogoAgregarVideojuego(viewModel: VideojuegosViewModel, userToken: String){
         val inflater = LayoutInflater.from(contexto)
         view = inflater.inflate(R.layout.agregar_dialogo, null)
 
@@ -49,9 +53,18 @@ class DialogoAgregar(myRecyclerView: RecyclerView) {
 
         builder.setPositiveButton("Si") { _, _ ->
             val nuevoVideojuego = crearVideojuego()
+
             if(nuevoVideojuego != null){
-                Toast.makeText(contexto, "Agregando " + nuevoVideojuego.titulo, Toast.LENGTH_LONG).show()
-                viewModel.agregarVideojuegoRepo(nuevoVideojuego)
+                viewModel.viewModelScope.launch {
+                    val response = RetrofitModule.apiService.addVideojuego(userToken, RequestAddVideojuego(nuevoVideojuego!!.titulo, nuevoVideojuego.genero, nuevoVideojuego.nota, nuevoVideojuego.fechaSalida, null))
+
+                    if(response.isSuccessful && response.body()?.result.equals("ok insercion")){
+                        nuevoVideojuego.id = response.body()?.insertId!!.toInt()
+
+                        Toast.makeText(contexto, "Agregando " + nuevoVideojuego.titulo, Toast.LENGTH_LONG).show()
+                        viewModel.agregarVideojuegoRepo(nuevoVideojuego)
+                    }
+                }
             }
         }
 
@@ -102,7 +115,7 @@ class DialogoAgregar(myRecyclerView: RecyclerView) {
         newVideojuego[4] = image.toString()
 
         if(newVideojuego[0].isNotEmpty() && newVideojuego[1].isNotEmpty() && newVideojuego[3].isNotEmpty()){
-            val videojuegoCreado = Videojuego(newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), newVideojuego[3].replace('-', '/'), newVideojuego[4].toInt())
+            val videojuegoCreado = Videojuego(-1, newVideojuego[0], newVideojuego[1], newVideojuego[2].toInt(), newVideojuego[3].replace('-', '/'), null)
             return videojuegoCreado
         }else{
             Toast.makeText(contexto, "Error al crear, debes rellenar todos los campos", Toast.LENGTH_SHORT).show()

@@ -1,6 +1,7 @@
 package com.example.ejercicios_clase.ui.views.fragmentos
 
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,23 +12,31 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicios_clase.R
+import com.example.ejercicios_clase.data.dataSource.mem.models.Repositorio
 import com.example.ejercicios_clase.databinding.VideojuegosActivityBinding
 import com.example.ejercicios_clase.ui.modelView.VideojuegosViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class VideojuegosFragment: Fragment(), SearchView.OnQueryTextListener {
     lateinit var videojuegosBinding: VideojuegosActivityBinding
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myProgressBar: ProgressBar
+    private lateinit var sPSesion: SharedPreferences
+
+    lateinit var userToken: String
 
     val videojuegosViewModel : VideojuegosViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,13 +55,21 @@ class VideojuegosFragment: Fragment(), SearchView.OnQueryTextListener {
             Toast.makeText(view.context, titleArgumentValue, Toast.LENGTH_LONG).show()
         }
 
-        iniciar()
+        sPSesion = view.context.getSharedPreferences("Sesion", AppCompatActivity.MODE_PRIVATE)
+        userToken = sPSesion.getString("Token", "").toString()
+
+        lifecycleScope.launch {
+            Repositorio.cargarVideojuegos(userToken)
+
+            iniciar()
+        }
     }
 
     private fun iniciar() {
         iniciarRecyclerView()
         loadData()
         videojuegosViewModel.setAdapter(myRecyclerView)
+        videojuegosViewModel.setToken(userToken)
         registerLiveData()
 
         val addButton = videojuegosBinding.root.findViewById<ImageButton>(R.id.btn_add)

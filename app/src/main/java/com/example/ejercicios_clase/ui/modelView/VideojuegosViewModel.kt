@@ -38,6 +38,8 @@ class VideojuegosViewModel @Inject constructor() : ViewModel(){
     lateinit var editarVideojuego: DialogoEditar
     lateinit var eliminarVideojuego: DialogoEliminar
 
+    lateinit var userToken: String
+
     fun setAdapter(recyclerView: RecyclerView) {
         recyclerView.adapter = AdapterVideojuego(
             videojuegosListLiveData.value as MutableList<Videojuego>,
@@ -51,6 +53,8 @@ class VideojuegosViewModel @Inject constructor() : ViewModel(){
         editarVideojuego = DialogoEditar(recyclerView)
         eliminarVideojuego = DialogoEliminar(recyclerView)
     }
+
+    fun setToken(token: String){ userToken = token }
 
     fun buscarPorNota(nota : Int){
         busqueda.value = nota
@@ -66,7 +70,6 @@ class VideojuegosViewModel @Inject constructor() : ViewModel(){
                 progressBarLiveData.value = false
             }
         }
-        Log.i("TAG-VIDEOJUEGOS", "Lista Actualizada --- " + videojuegosListLiveData.value?.size)
     }
 
     fun listaPorNota(nota: Int){
@@ -83,16 +86,16 @@ class VideojuegosViewModel @Inject constructor() : ViewModel(){
 
     fun setAddButton(addButton : ImageButton){
         addButton.setOnClickListener {
-            agregarVideojuego.mostrarDialogoAgregarVideojuego(this)
+            agregarVideojuego.mostrarDialogoAgregarVideojuego(this, userToken)
         }
     }
 
     fun editarVideojuego(pos: Int){
-        editarVideojuego.mostrarDialogoEditarVideojuego(pos, Repositorio.videojuegos[pos], this)
+        editarVideojuego.mostrarDialogoEditarVideojuego(pos, Repositorio.videojuegos[pos], this, userToken)
     }
 
     fun eliminarVideoJuego(pos: Int){
-        eliminarVideojuego.mostrarDialogoEliminarVideojuego(pos, Repositorio.videojuegos[pos], this)
+        eliminarVideojuego.mostrarDialogoEliminarVideojuego(pos, Repositorio.videojuegos[pos], this, userToken)
     }
 
     fun agregarVideojuegoRepo(videojuego: Videojuego){
@@ -137,7 +140,6 @@ class VideojuegosViewModel @Inject constructor() : ViewModel(){
             useCaseEliminarVideojuego.invoke(pos)
 
             lista()
-            Log.i("PRUEBA", "Actualizando lista --- " + Repositorio.videojuegos.size)
             myRecyclerView.adapter?.notifyItemRemoved(pos)
             myRecyclerView.adapter?.notifyItemRangeChanged(pos, Repositorio.videojuegos.size)
 

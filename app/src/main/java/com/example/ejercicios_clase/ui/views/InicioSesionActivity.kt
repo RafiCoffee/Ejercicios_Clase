@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -62,8 +63,11 @@ class InicioSesionActivity : AppCompatActivity(){
         inicioSesionBt.setOnClickListener {
             lifecycleScope.launch {
                 val idUsuarioLogin = comprobarUsuarios()
+                var loguedUsername: String
                 if(idUsuarioLogin != -1){
-                    val loguedUsername = userDao.getUserById(idUsuarioLogin).username
+                    withContext(Dispatchers.IO){
+                        loguedUsername = userDao.getUserById(idUsuarioLogin).username
+                    }
                     abrirApp(loguedUsername)
                 }
             }
@@ -72,6 +76,7 @@ class InicioSesionActivity : AppCompatActivity(){
         registrarUsuarioBt.setOnClickListener {
             val intentRegistrarActivity = Intent(this, RegistrarUsuarioActivity :: class.java)
             try{
+                Log.i("PRUEBA", "ENTRA A REGISTRO")
                 startActivity(intentRegistrarActivity)
             }catch (e : ActivityNotFoundException){
                 Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
@@ -92,14 +97,12 @@ class InicioSesionActivity : AppCompatActivity(){
             RetrofitModule.apiService.auth(RequestLoginUsuario(email, password))
         }
 
-        Toast.makeText(this@InicioSesionActivity, "" + response.message(), Toast.LENGTH_LONG).show()
-
-        if (response.isSuccessful && response.body()?.result.equals("ok")) {
+        if(response.isSuccessful && response.body()?.result.equals("ok")) {
             withContext(Dispatchers.Main) {
                 guardarToken(response.body()!!.token)
             }
             return response.body()!!.idUser
-        } else {
+        }else{
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@InicioSesionActivity, "" + response.body()?.result, Toast.LENGTH_LONG).show()
                 errorText.text = getString(R.string.datos_introducidos_incorrectos)

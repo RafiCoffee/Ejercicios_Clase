@@ -23,9 +23,10 @@ class ViewHolderVideojuego (view: View, var deleteOnClick: (Int) -> Unit, var up
                 3 -> binding.notaVideojuego.setImageResource(R.drawable.nota_3)
                 4 -> binding.notaVideojuego.setImageResource(R.drawable.nota_4)
                 5 -> binding.notaVideojuego.setImageResource(R.drawable.nota_5)
+                else -> binding.notaVideojuego.setImageResource(R.drawable.nota_0)
             }
-            binding.fechaSalidaVideojuego.text = videojuego.fechaSalida
-            binding.imagenVideojuego.setImageResource(videojuego.image)
+            binding.fechaSalidaVideojuego.text = videojuego.fechaSalida ?: "Sin fecha de salida"
+            binding.imagenVideojuego.setImageResource(videojuego.image ?: R.drawable.juego_generico_portada)
 
             }
 

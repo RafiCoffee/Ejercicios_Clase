@@ -4,7 +4,9 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -13,16 +15,21 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.Estadisticas
+import com.example.ejercicios_clase.data.dataSource.mem.models.Repositorio
+import com.example.ejercicios_clase.data.retrofit.RetrofitModule
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class MainActivity: AppCompatActivity() {
@@ -33,12 +40,13 @@ class MainActivity: AppCompatActivity() {
 
     private lateinit var cerrarSesionBt: Button
     private lateinit var nombreUsuario: TextView
+    private lateinit var imgUsuario: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
         sPSesion = getSharedPreferences("Sesion", MODE_PRIVATE)
-        //Toast.makeText(this, sPSesion.getString("Token", ""), Toast.LENGTH_LONG).show()
+
         mantenerSesionIniciada()
         asociarElementos()
 
@@ -114,6 +122,7 @@ class MainActivity: AppCompatActivity() {
     fun asociarElementos(){
         cerrarSesionBt = findViewById(R.id.cerrarSesionBt)
         nombreUsuario = findViewById(R.id.nombreUsuario)
+        imgUsuario = findViewById(R.id.fotoUsuarioImg)
         nombreUsuario.text = sPSesion.getString("Usuario", "Invitado")
     }
 

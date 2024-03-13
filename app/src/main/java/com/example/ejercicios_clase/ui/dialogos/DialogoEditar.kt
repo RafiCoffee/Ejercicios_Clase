@@ -12,11 +12,16 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejercicios_clase.R
 import com.example.ejercicios_clase.data.dataSource.mem.models.Videojuego
 import com.example.ejercicios_clase.data.dialoges.DialogCallbackCalendario
+import com.example.ejercicios_clase.data.retrofit.RetrofitModule
+import com.example.ejercicios_clase.data.retrofit.requests.RequestAddVideojuego
+import com.example.ejercicios_clase.data.retrofit.requests.RequestUpdateVideojuego
 import com.example.ejercicios_clase.ui.modelView.VideojuegosViewModel
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -31,7 +36,7 @@ class DialogoEditar(myRecyclerView: RecyclerView) {
     private lateinit var listaNotasVideojuegoEditado : MutableList<RadioButton>
     private lateinit var fechaVideojuegoEditado : Button
     private lateinit var imagenVideojuegoEditado : Spinner
-    fun mostrarDialogoEditarVideojuego(pos: Int, videojuegoSeleccionado: Videojuego, viewModel: VideojuegosViewModel){
+    fun mostrarDialogoEditarVideojuego(pos: Int, videojuegoSeleccionado: Videojuego, viewModel: VideojuegosViewModel, userToken: String){
         val inflater = LayoutInflater.from(contexto)
         view = inflater.inflate(R.layout.editar_dialogo, null)
 
@@ -49,7 +54,7 @@ class DialogoEditar(myRecyclerView: RecyclerView) {
             5 -> listaNotasVideojuegoEditado[4].isChecked = true
         }
 
-        val fecha = LocalDate.parse(videojuegoSeleccionado.fechaSalida.replace('/', '-'), DateTimeFormatter.ISO_LOCAL_DATE)
+        val fecha = LocalDate.parse(videojuegoSeleccionado.fechaSalida!!.replace('/', '-'), DateTimeFormatter.ISO_LOCAL_DATE)
         val mes = fecha.monthValue.toString().padStart(2, '0')
         val dia = fecha.dayOfMonth.toString().padStart(2,'0')
         val fechaCompleta = "${fecha.year}/${mes}/${dia}"
@@ -76,10 +81,17 @@ class DialogoEditar(myRecyclerView: RecyclerView) {
         builder.setView(view)
 
         builder.setPositiveButton("Si") { _, _ ->
-            val nuevoVideojuegoEditado = crearVideojuego()
+            val nuevoVideojuegoEditado = crearVideojuego(videojuegoSeleccionado.id)
+
             if(nuevoVideojuegoEditado != null){
-                Toast.makeText(contexto, "Editando " + nuevoVideojuegoEditado.titulo, Toast.LENGTH_LONG).show()
-                viewModel.editarVideojuegoRepo(pos, nuevoVideojuegoEditado)
+                viewModel.viewModelScope.launch {
+                    val response = RetrofitModule.apiService.editarVideojuego(userToken, videojuegoSeleccionado.id.toString(), RequestUpdateVideojuego(nuevoVideojuegoEditado!!.titulo, nuevoVideojuegoEditado?.genero, nuevoVideojuegoEditado?.nota, nuevoVideojuegoEditado?.fechaSalida, null))
+
+                    if(response.isSuccessful && response.body()?.result.equals("ok actualizacion")){
+                        Toast.makeText(contexto, "Editando " + nuevoVideojuegoEditado.titulo, Toast.LENGTH_LONG).show()
+                        viewModel.editarVideojuegoRepo(pos, nuevoVideojuegoEditado)
+                    }
+                }
             }
         }
 
@@ -105,7 +117,7 @@ class DialogoEditar(myRecyclerView: RecyclerView) {
         listaNotasVideojuegoEditado.add(view.findViewById(R.id.notaVideojuego5))
     }
 
-    fun crearVideojuego() : Videojuego? {
+    fun crearVideojuego(idSeleccionada: Int) : Videojuego? {
         val newVideojuegoEditado = Array(5){""}
         notaVideojuegoEditado = listaNotasVideojuegoEditado.firstOrNull{ it.isChecked }!!
         newVideojuegoEditado[0] = tituloVideojuegoEditado.text.toString()
@@ -130,7 +142,7 @@ class DialogoEditar(myRecyclerView: RecyclerView) {
         newVideojuegoEditado[4] = image.toString()
 
         if(newVideojuegoEditado[0].isNotEmpty() && newVideojuegoEditado[1].isNotEmpty() && newVideojuegoEditado[3].isNotEmpty()){
-            val videojuegoEditado = Videojuego(newVideojuegoEditado[0], newVideojuegoEditado[1], newVideojuegoEditado[2].toInt(), newVideojuegoEditado[3].replace('-', '/'), newVideojuegoEditado[4].toInt())
+            val videojuegoEditado = Videojuego(idSeleccionada, newVideojuegoEditado[0], newVideojuegoEditado[1], newVideojuegoEditado[2].toInt(), newVideojuegoEditado[3].replace('-', '/'), null)
             return videojuegoEditado
         }else{
             Toast.makeText(contexto, "Error al modificar, debes rellenar todos los campos", Toast.LENGTH_SHORT).show()

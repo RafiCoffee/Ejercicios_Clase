@@ -3,26 +3,23 @@ package com.example.ejercicios_clase.data.ui.views
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.method.PasswordTransformationMethod
 import android.util.Base64
-import android.util.Log
-import android.view.View
-import android.widget.AdapterView
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ejercicios_clase.ListaUsuarios
 import com.example.ejercicios_clase.R
-import com.example.ejercicios_clase.data.models.Usuario
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.lifecycle.lifecycleScope
 import com.example.ejercicios_clase.data.dataSource.dataBase.dao.UsuarioDao
@@ -31,7 +28,6 @@ import com.example.ejercicios_clase.data.retrofit.RetrofitModule
 import com.example.ejercicios_clase.data.retrofit.requests.RequestRegisterUsuario
 import com.example.ejercicios_clase.ui.views.InicioSesionActivity
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
@@ -48,6 +44,11 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
     private lateinit var condiciones: CheckBox
     private lateinit var errorText: TextView
     private lateinit var registrarUsuarioBt: Button
+    private lateinit var imagViewFoto: ImageView
+    private lateinit var imgViewFotoBt: Button
+
+    private lateinit var startForResult: ActivityResultLauncher<Intent>
+    private lateinit var startForGallery: ActivityResultLauncher<Intent>
 
     private var bitMap: Bitmap? = null
 
@@ -74,6 +75,8 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
         condiciones = findViewById(R.id.aceptarCondiciones)
         errorText = findViewById(R.id.errorText)
         registrarUsuarioBt = findViewById(R.id.registrarUsuarioBt)
+        imagViewFoto = findViewById(R.id.imagen_usuario)
+        imgViewFotoBt = findViewById(R.id.imagen_usuarioBt)
     }
 
     private fun cargarEventos(){
@@ -95,6 +98,21 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
             }catch (e : ActivityNotFoundException){
                 Toast.makeText(this, "Error al acceder a la pantalla", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        startForResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            handleImageCaptureResult(result)
+        }
+
+        startForGallery =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            handleImageGalleryResult(result)
+        }
+
+        imgViewFotoBt.setOnClickListener {
+            val pickPhoto = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startForGallery.launch(pickPhoto)
         }
     }
 
@@ -147,7 +165,7 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
         }
     }
 
-    private fun insertarUsuarioRoom(idNuevoUsuario: Int, username: String, email: String, password: String){
+    suspend fun insertarUsuarioRoom(idNuevoUsuario: Int, username: String, email: String, password: String){
         val nuevoUsuario = UsuarioEntity(
             idNuevoUsuario,
             email,
@@ -159,11 +177,38 @@ class RegistrarUsuarioActivity: AppCompatActivity() {
         userDao.insertUser(nuevoUsuario)
     }
 
-    private fun bitmapToBase64(bitmap: Bitmap): String{
+    private val REQUEST_CAMERA_PERMISSION = 100
+    private val REQUEST_GALLERY_PERMISSION = 102
+
+    private fun handleImageCaptureResult(result: ActivityResult) {
+        if (result.resultCode == RESULT_OK) {
+            val data: Intent? = result.data
+            data?.let {
+                val imageBitmap = it.extras?.get("data") as Bitmap
+                imagViewFoto.setImageBitmap(imageBitmap)
+                bitMap = imageBitmap
+            }
+        }
+    }
+
+    private fun handleImageGalleryResult(result: ActivityResult) {
+        if (result.resultCode == RESULT_OK) {
+            val data: Intent? = result.data
+            data?.let {
+                val imageUri: Uri? = it.data
+                val imageBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
+                imagViewFoto.setImageBitmap(imageBitmap)
+                bitMap = imageBitmap
+            }
+        }
+    }
+
+    private fun bitmapToBase64(bitmap: Bitmap): String {
         val byteArrayOutputStream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
         val byteArray = byteArrayOutputStream.toByteArray()
-        val imagenBase64 = Base64.encodeToString(byteArray, Base64.DEFAULT)
-        return "data:image/PNG;base64,$imagenBase64"
+        val imagenbase64 =Base64.encodeToString(byteArray, Base64.DEFAULT)
+        return "data:image/PNG;base64,$imagenbase64"
+
     }
 }

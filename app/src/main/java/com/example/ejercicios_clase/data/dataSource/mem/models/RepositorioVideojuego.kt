@@ -52,7 +52,7 @@ class RepositorioVideojuego : RepositorioVideojuegoInterface {
     private fun actualizarLista(dataSource: List<Videojuego>): MutableList<Videojuego> {
         val listaVideojuegosMutable: MutableList<Videojuego> = mutableListOf()
         dataSource.forEach { videojuego ->
-            listaVideojuegosMutable.add(Videojuego(videojuego.titulo, videojuego.genero, videojuego.nota, videojuego.fechaSalida, videojuego.image))
+            listaVideojuegosMutable.add(Videojuego(videojuego.id, videojuego.titulo, videojuego.genero, videojuego.nota, videojuego.fechaSalida, videojuego.image))
         }
         Repositorio.videojuegos = listaVideojuegosMutable
         return listaVideojuegosMutable
